@@ -29,6 +29,8 @@ class MessagesController < ApplicationController
     if @message.save
       ActionCable.server.broadcast 'message_channel',
                                   message: message_render(@message)
+      format.json { render json: {}, status: :ok}
+      format.html 
     else
       format.html { render :new }
       format.json { render json: @message.errors, status: :unprocessable_entity }

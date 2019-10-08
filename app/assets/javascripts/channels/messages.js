@@ -11,6 +11,9 @@ App.message = App.cable.subscriptions.create("MessageChannel", {
       // Called when there's incoming data on the websocket for this channel
       $('.messages').append(data.message)
       $('.trip-message').val("");
-      scroll_bottom();
+      $('.messages').scrollTop($('.messages')[0].scrollHeight);
+      toastr.success('Message succesfully sent.');
     }
   });
+
+  
