@@ -24,16 +24,17 @@ class MessagesController < ApplicationController
   # POST /messages
   # POST /messages.json
   def create
-    @message      = Message.new(message_params)
-    
-    if @message.save
-      ActionCable.server.broadcast 'message_channel',
-                                  message: message_render(@message)
-      format.json { render json: {}, status: :ok}
-      format.html 
-    else
-      format.html { render :new }
-      format.json { render json: @message.errors, status: :unprocessable_entity }
+    @message = Message.new(message_params)
+    @message.body = params[:message][:body].strip
+
+    respond_to do |format|
+      if @message.save
+        ActionCable.server.broadcast 'message_channel',
+                                    message: message_render(@message)
+      else
+        puts @message.errors.full_messages
+        format.json { render json: @message.errors, status: :unprocessable_entity }
+      end
     end
   end
 
