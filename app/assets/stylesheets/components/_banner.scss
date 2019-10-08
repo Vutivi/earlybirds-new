@@ -1,0 +1,94 @@
+.banner h2 {
+    font-weight: 800 !important;
+      font-size: 25px !important;
+      line-height: 30px !important;
+      letter-spacing: normal !important;
+      padding-top: 2px !important;
+      padding-bottom: 2px !important;
+      color:#616668 !important;
+  }
+  
+  #sunfish h3 {
+    color: #616668;
+    font-weight: 600 !important;
+      word-wrap: break-word !important;
+      font-size: 20px !important;
+      line-height: 26px !important;
+      letter-spacing: normal !important;
+  }
+  #sunfish .color-text {
+    color:rgb(165, 41, 3);
+    font-size:12px;
+    font-weight:700;
+    line-height:16px;
+    text-transform:uppercase;
+  }
+  
+  .place-name {
+    color: #616668;
+    font-size:16px;
+    line-height:22px;
+    font-weight:700;  
+  }
+  
+  
+  #sunfish img {
+  /*   width:100%; */
+    border-radius:3px;
+  }
+  
+  
+  #sunfish figure {
+    position:relative;
+  }
+  
+  #sunfish figcaption.top {
+    max-width:400px;
+    position:absolute;
+    top:0px;
+    left:40px;
+  }
+  
+  #sunfish figcaption.button {
+    max-width:400px;
+    position:absolute;
+    top:195px;
+    left:40px;
+  }
+  
+  #sunfish .btn-bnb {
+    background-color:rgb(255,255,255);
+    color: $brand;
+    border-radius: 4px !important;
+    border-width: 2px !important;
+    border-style: solid !important;
+    border-color: transparent !important;
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 4px 4px 0px !important;
+    font-size: 16px !important;
+    line-height: 21px !important;
+    font-weight: 800 !important;
+    padding: 12px 24px;
+  }
+  
+  #sunfish figcaption.sign {
+    position:absolute;
+    bottom:40px;
+    left:40px;
+  }
+  
+  #sunfish figure img {
+    width:100%;
+    height: 250px;
+  }
+  @media (max-width:700px) {
+    #sunfish figure {
+      height:300px;
+    }
+    #sunfish figure img {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      object-fit: cover;
+      object-position: center center;
+    }
+  }

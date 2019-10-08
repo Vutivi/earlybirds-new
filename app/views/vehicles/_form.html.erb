@@ -1,0 +1,22 @@
+
+<%= simple_form_for(@vehicle) do |f| %>
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+  <div class="form-inputs">
+    <%
+=begin%>
+ <%= f.select(:make, CarsService.makes, {}, {:class => "selectpicker makes", :id => "makes", 'data-live-search' => "true"}) %> 
+<%
+=end%>
+    <%= f.input :make, :collection => [] %> 
+    <%= f.input :model, :collection => [] %>
+    <%= f.input :licence_plate %>
+    <%= f.input :color %>
+    <%= f.input :is_verified %>
+    <%= f.input :image, as: :file %>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

@@ -1,0 +1,56 @@
+$(document).on('turbolinks:load', function(){
+   fillMakes();
+   $(document).on('change', '#vehicle_make', function(){
+      var vehicleMake = this.value;
+      vehicleMake     = /\s/.test(vehicleMake) ? vehicleMake.split(' ').join('%20') : vehicleMake
+      fillModels(vehicleMake)
+   })
+
+   function fillMakes(){
+      var $select = $('#vehicle_make');  
+      $select.find('option').remove(); 
+
+      $.ajax({
+         dataType: 'json',
+         url: 'https://www.carqueryapi.com/api/0.3/?callback=?&cmd=getMakes',
+         success: function(res) {
+            makes = $.map( res['Makes'], function( n ) {
+               return n['make_display'];
+            });
+
+            $.each(makes, function(key, value) {              
+               $select.append('<option value=' + value + '>' + value + '</option>');
+            });    
+         },
+         error: function(res) {
+            alert('Makes api did not find anything');
+         }
+      });
+   }
+
+   function fillModels(make){
+      var $select = $('#vehicle_model');  
+      $select.find('option').remove(); 
+
+      $.ajax({
+         url: 'https://www.carqueryapi.com/api/0.3/?callback=?&cmd=getModels&make='+ make,
+         dataType: 'json',
+         success: function(res) {
+            models = $.map( res['Models'], function( n ) {
+               return n['model_name'];
+            });
+
+            $.each(models, function(key, value) {              
+               $select.append('<option value=' + value + '>' + value + '</option>');
+            });   
+         },
+         error: function(res) {
+            alert('Models api did not find anything');
+         }
+      });
+                                           
+   }
+
+   
+   
+})

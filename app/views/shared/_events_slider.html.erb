@@ -1,0 +1,19 @@
+
+    <h2>Social events lift clubs</h2>
+        <div data-slick='{"slidesToShow": 3, "slidesToScroll": 3}' class="scroller responsive data">
+            <% @social_trips.each do |trip| %>
+                    <!-- Card example 06 -->
+                    <div class="card card__small card__dark card__dark--magenta">
+                        <div class="media"> <img src="<%= url_for(trip.vehicle.image) %>" alt="" width="640" height="426"> </div>
+                        <div class="primary-title">
+                            <div class="primary-text"><%= link_to trip.event.name, event_path(trip.event), :class => "event-link" %></div>
+                            <div class="secondary-text">from <%= trip.start_location %></div>
+                        </div>
+                        <div class="actions border-top">
+                            <div class="action-buttons">
+                                <%= button_to "View Details", trip_path(trip), :method => :get, :class => "button", :type => "button" %>
+                            </div>
+                        </div>
+                    </div>
+            <% end %>
+    </div>

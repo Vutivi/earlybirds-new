@@ -1,0 +1,33 @@
+
+    <h2>Cross province home lift clubs</h2>
+    <div data-slick='{"slidesToShow": 4, "slidesToScroll": 4}' class="scroller responsive data">
+        <% @cross_province_trips.each do |trip| %>
+                <!-- Card example 06 -->
+                <div class="card card__dark card__dark--magenta">
+                    <div class="media media--16-9"> <img src="<%= url_for(trip.vehicle.image) %>" alt="" width="640" height="426"> </div>
+                    <div class="primary-title">
+                        <div class="primary-text float-right">
+                            R<%= trip.price %>
+                        </div>
+                        <div class="primary-text">
+                            <%= link_to "#{trip.start_location.split(',')[0]} - #{trip.end_location.split(',')[0]}", trip_path(trip) %>
+                        </div>
+                        <div class="secondary-text">
+                            <div class="action-icons icon-color--yellow"><span><i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i></div>
+                            Super driver</div>
+                        </div>
+                        <div class="supporting-text">Departs on <%= trip.departure_times.strftime('%d-%M-%Y, %H:%m') %></div>
+                        <div class="actions border-top">
+                            <div class="action-buttons float-right">
+                                <%= button_to "View Details", trip_path(trip), :method => :get, :class => "button", :type => "button" %>
+                            </div>
+                            <div class="action-icons">
+                                <div class="social-icons">
+                                    <%= social_share(trip) %>
+                                </div>
+                            </div>
+                
+            </div>
+        </div> 
+<% end %>
+</div>

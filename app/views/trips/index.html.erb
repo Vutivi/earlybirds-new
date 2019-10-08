@@ -1,0 +1,64 @@
+<%
+=begin%>
+ <p id="notice"><%= notice %></p>
+
+<h1>Trips</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Kind</th>
+      <th>Slug</th>
+      <th>Start location</th>
+      <th>End location</th>
+      <th>Seats</th>
+      <th>Price</th>
+      <th>Vehicle</th>
+      <th>Plan</th>
+      <th>Approved</th>
+      <th>Departure times</th>
+      <th>Return times</th>
+      <th>Round trip</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @trips.each do |trip| %>
+      <tr>
+        <td><%= trip.kind %></td>
+        <td><%= trip.slug %></td>
+        <td><%= trip.start_location %></td>
+        <td><%= trip.end_location %></td>
+        <td><%= trip.seats %></td>
+        <td><%= trip.price %></td>
+        <td><%= trip.vehicle %></td>
+        <td><%= trip.plan %></td>
+        <td><%= trip.approved %></td>
+        <td><%= trip.departure_times %></td>
+        <td><%= trip.return_times %></td>
+        <td><%= trip.round_trip %></td>
+        <td><%= link_to 'Show', trip %></td>
+        <td><%= link_to 'Edit', edit_trip_path(trip) %></td>
+        <td><%= link_to 'Destroy', trip, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Trip', new_trip_path %> 
+<%
+=end%>
+<section class="better-space"></section>
+<%= render 'shared/daily_cards', header: 'Cross province lift clubs', trips: @cross_province_trips %>
+<section class="better-space"></section>
+<%= render 'shared/daily_cards', header: 'Social events lift clubs', trips: @social_trips %>
+<section class="better-space"></section>
+<%= render 'shared/daily_cards', header: 'Daily work lift clubs', trips: @daily_work_trips %>
+<%
+=begin%>
+ <%= render 'shared/daily_cards' %> 
+<%
+=end%>

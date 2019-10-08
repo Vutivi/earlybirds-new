@@ -1,0 +1,88 @@
+// Graphical variables
+@import "config/fonts";
+@import "config/colors";
+@import "config/bootstrap_variables";
+
+// External libraries
+@import "bootstrap";
+@import "bootstrap-sprockets";
+@import 'slick';
+@import 'slick-theme';
+@import "font-awesome-sprockets";
+@import "font-awesome";
+@import "jquery.steps";
+@import "toastr";
+@import "social-share-button";
+
+// Your CSS partials
+@import "layouts/index";
+@import "components/index";
+@import "pages/index";
+@import "trips/index";
+
+body {
+    background-color: #ffffff !important;
+}
+
+h2 {
+    color: $secondary-color !important;
+    font-weight: 800 !important;
+    font-size: 25px !important;
+    line-height: 30px !important;
+    letter-spacing: normal !important;
+    padding-top: 2px !important;
+    padding-bottom: 2px !important;
+}
+
+.content{
+    overflow-y: scroll !important;
+    height: 100px !important; 
+}
+
+// Checkbox
+div.checkbox.switcher, div.radio.switcher {
+  label {padding: 0;
+    * {vertical-align: middle;}
+    input {display: none;
+      &+span {position: relative; display: inline-block; margin-right: 10px; width: 56px; height: 28px; background: $secondary-color; border: 1px solid $secondary-background; border-radius: 50px; transition: all 0.3s ease-in-out;
+        small {position: absolute; display: block; width: 50%; height: 100%; background: #fff; border-radius: 50%; transition: all 0.3s ease-in-out; left: 0;}
+      }
+      &:checked+span {background: $brand; border-color: $brand;
+        small {
+            left: 50%;
+        }
+      }
+    }
+  }
+}
+
+a {
+color: $secondary-color !important;
+}
+
+a.event-link {
+    color: $primary-color !important;
+}
+
+$size: 20px;
+
+.social-share-button {
+  padding: 8px 0px;
+  .ssb-icon {
+    background-size: $size $size;
+    height: $size;
+    width: $size;
+  }
+}
+
+.brronC {
+  width: 100%;
+  display: flex;
+  -webkit-box-pack: center;
+  justify-content: center;
+  flex-direction: column;
+  background-color: #f8f8fa;
+  -webkit-box-align: center;
+  align-items: center;
+  padding: 32px 8px;
+}

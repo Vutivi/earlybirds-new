@@ -1,0 +1,113 @@
+<div class="row middle-section">
+    <div class="trip-img col-md-7">
+      <h2><i class="fa fa-map-marker" aria-hidden="true"></i> <%= @trip.start_location %> <i class="fa fa-chevron-right" aria-hidden="true"></i> <%= @trip.end_location %></h2>
+    </div>
+    <div class="trip-img col-md-7">
+      <%= image_tag url_for(@trip.vehicle.image), :alt => "#{@trip.vehicle.make}" %>
+    </div>
+
+      <div class="trip-info col-md-5">
+        <div>
+          <i class="fa icon fa-arrow-alt-circle-right"></i>
+          <span>Departure: </span> <span><%= @trip.departure_times.strftime("%d %B %Y, %H:%M ")  %></span>
+        </div>
+
+        <div>
+          <i class="fa icon fa-arrow-alt-circle-left"></i>
+          <span>Returns: </span> <span><%= @trip.return_times.strftime("%d %B %Y, %H:%M")  %></span>
+        </div>
+
+        <div>
+            <i class="fa icon fa-comment-dollar"></i>
+            <span>Price: </span><span>R<%= @trip.price %> per trip</span>
+        </div>
+
+        <div>
+            <span>Seats available: </span><span><a href="#" class="trip-owner"><%= @trip.seats %></a> </span>
+        </div>
+
+        <div>
+            <span>Call driver: </span><span><a href="#" class="trip-owner"><%= @trip.user.cellphone %></a> </span>
+        </div>
+
+        <div class="social-icons">
+          <%= social_share(@trip) %>
+        </div>
+
+        
+      <div>
+          <span> <i class="fa fa-user"></i> 0 Partners <%= " and #{pluralize(visits_count(@trip), 'view')}" if current_user_is_owner?(@trip) %> </span>
+            <% unless current_user_is_owner?(@trip) %>
+              <button class="join-trip" data-trip-id="<%= @trip.id %>" data-user-id="<%= current_user&.id %>" data-action-type="<%= set_rider_state(@trip) %>" data-rider-id="<%= rider_id(current_user, @trip) %>" ><%= set_rider_state(@trip) %> trip</button>
+            <% end %>
+        </div>
+
+  </div>
+
+  <div class="col-md-7">
+    <% if rider_id(current_user, @trip).present? || current_user_is_owner?(@trip) %>
+      <div class="chat">
+        <h3> Chat with <span>this trip riders and driver</span> <i class="fa fa-comment-dots"></i></h3>
+        <div class="messages">
+          <%= render @messages %>
+        </div>
+        <div class="inputs">
+          <%= simple_form_for(Message.new, html: {role: "form"}, url: '/messages', remote: true) do |f| %> 
+            <%= f.text_field :body, placeholder: "Write your message here.....", autocomplete: "off", class: "trip-message" %>
+            <%= f.hidden_field :trip_id, value: "#{@trip.id}" %>
+            <%= f.hidden_field :user_id, value: "#{current_user.id}" %>
+            <%= f.button :submit, value: "Send" %>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="driver-details col-md-5">
+      <h3>Driver details <i class="fa fa-info-circle"></i></h3>
+      <div class="details">
+          <div class="driver-photo">
+              <%= image_tag set_user_profile_image(@trip.user) %>
+          </div>
+          <div class="detail">
+              <span>Name: <span><%= "#{@trip.user.first_name} #{@trip.user.last_name}"%></span> </span>
+              <span>Age: <span>35</span> </span>
+              <span>Gender: <span>Male</span> </span>
+               <span>ID: <span>verified</span> <i class="fa fa-close"></i> </span>
+              <span>Email: <span>verified</span> <i class="fa fa-check"></i> </span>
+              <span>Phone:  <span>verified</span> <i class="fa fa-close"></i> </span>
+          </div>
+          <%
+=begin%>
+ <div class="detail rating">
+              <span>Rating: <span><i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i></span></span>
+          </div>  
+<%
+=end%>
+
+          <%
+=begin%>
+ <div class="detail trips">
+              <span>trips: <span><%= pluralize(@trip.user.trips.count, 'trip') %></span> </span>
+          </div> 
+<%
+=end%>
+          <div class="detail Member ">
+              <span><span>Member since <%= @trip.user.created_at.strftime("%B, %Y") %></span> </span>
+          </div>
+      </div>
+      <div class="contact-driver">
+      <h3>Contact driver <i class="fa fa-paper-plane"></i></h3>
+      <div class="contact">
+          <form>
+              <input type="text" placeholder="First Name">
+              <input type="text" placeholder="Last Name">
+              <input type="email" placeholder="Email">
+              <input type="number" placeholder="Phone number">
+              <input type="submit" value="Send">
+          </form>
+      </div>
+  </div>
+  </div>
+</div>
+     

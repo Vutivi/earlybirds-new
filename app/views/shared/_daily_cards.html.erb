@@ -1,0 +1,34 @@
+<h2><%= header %></h2>
+<div class="row">
+  <% trips.first(4).each do |trip| %>
+    <div class="col-md-3 col-sm-12">
+      <!-- Card example 06 -->
+      <div class="card card__dark card__dark--magenta">
+        <div class="media media--16-9"> <img src="<%= url_for(trip.vehicle.image) %>" alt="" width="640" height="426"> </div>
+          <div class="primary-title">
+            <div class="primary-text float-right">
+                R<%= trip.price %>
+            </div>
+            <div class="primary-text">
+                <%= link_to "#{trip.start_location.split(',')[0]} - #{trip.end_location.split(',')[0]}", trip_path(trip) %>
+            </div>
+            <div class="secondary-text">
+                <div class="action-icons icon-color--yellow"><span><i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i></div>
+                Super driver</div>
+            </div>
+            <div class="supporting-text">Departs at <%= trip.departure_times.strftime('%H:%m') %> daily</div>
+            <div class="actions border-top">
+              <div class="action-buttons float-right">
+                <%= button_to "View Details", trip_path(trip), :method => :get, :class => "button", :type => "button" %>
+              </div>
+              <div class="action-icons float-left">
+                <div class="social-icons">
+                  <%= social_share(trip) %>
+                </div>
+              </div>
+          </div>
+        </div> 
+    </div> 
+  <% end %>
+</div>
+<h2 class="view-more"><%= "Show all #{trips.size - 4} + lift clubs <i class='fa fa-angle-right'></i>".html_safe if (trips.size - 4) > 0 %></h2>

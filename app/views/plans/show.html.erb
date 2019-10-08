@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @plan.name %>
+</p>
+
+<p>
+  <strong>Price:</strong>
+  <%= @plan.price %>
+</p>
+
+<p>
+  <strong>Length:</strong>
+  <%= @plan.length %>
+</p>
+
+<p>
+  <strong>Catch phrase:</strong>
+  <%= @plan.catch_phrase %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @plan.description %>
+</p>
+
+<p>
+  <strong>Perks:</strong>
+  <%= @plan.perks %>
+</p>
+
+<%= link_to 'Edit', edit_plan_path(@plan) %> |
+<%= link_to 'Back', plans_path %>
