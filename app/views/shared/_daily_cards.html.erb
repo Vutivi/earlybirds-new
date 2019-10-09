@@ -18,7 +18,7 @@
             </div>
             <div class="supporting-text">Departs at <%= trip.departure_times.strftime('%H:%m') %> daily</div>
             <div class="actions border-top">
-              <div class="action-buttons float-right">
+              <div class="action-buttons float-right action-buttons-daily-cards">
                 <%= button_to "View Details", trip_path(trip), :method => :get, :class => "button", :type => "button" %>
               </div>
               <div class="action-icons float-left">

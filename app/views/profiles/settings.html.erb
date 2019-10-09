@@ -1,0 +1,36 @@
+<% resource = @resource %>
+<% resource_name = @resource.class.name %>
+<section class="better-space"></section>
+<h2>Edit <%= resource_name.to_s.humanize %></h2>
+
+<%= simple_form_for(resource, as: resource_name, url: registration_path(current_user), html: { method: :put }) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :email, required: true, autofocus: true %>
+    <%= f.input :first_name, required: true %>
+    <%= f.input :last_name, required: true %>
+    <%= f.input :cellphone, required: true %>
+    <%
+=begin%>
+ <%= f.input :date_of_birth, required: true %> 
+<%
+=end%>
+    <%= f.input :identity_number, hint: "We will never share your identity number." %>
+    <%= f.input :licence_number, hint: "We will never share your licence number."  %>
+    <%= f.input :gender, required: true, :collection => User.genders.to_a.collect{|c| [c[0].titleize, c[0]]} %>
+    <%= f.input :password, autocomplete: "off", hint: "leave it blank if you don't want to change it", required: false %>
+    <%= f.input :password_confirmation, required: false %>
+    <%= f.input :current_password, hint: "we need your current password to confirm your changes" %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit, "Update" %>
+  </div>
+<% end %>
+
+<h3>Cancel my account</h3>
+
+<p>Unhappy? <%= link_to "Cancel my account", registration_path(current_user), data: { confirm: "Are you sure?" }, method: :delete %></p>
+
+<%= link_to "Back", :back %>
