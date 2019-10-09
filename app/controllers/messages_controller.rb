@@ -24,16 +24,19 @@ class MessagesController < ApplicationController
   # POST /messages
   # POST /messages.json
   def create
-    @message      = Message.new(message_params)
-    
-    if @message.save
-      ActionCable.server.broadcast 'message_channel',
-                                  message: message_render(@message)
-      format.json { render json: {}, status: :ok}
-      format.html 
-    else
-      format.html { render :new }
-      format.json { render json: @message.errors, status: :unprocessable_entity }
+    @message = Message.new(message_params)
+
+    respond_to do |format|
+      if @message.save
+        if params[:format].eql?('json')
+          format.json { render status: 200, json: @message }
+        else
+          ActionCable.server.broadcast 'message_channel',
+                                      message: message_render(@message)
+        end   
+      else
+        format.json { render json: @message.errors, status: :unprocessable_entity }
+      end
     end
   end
 
@@ -59,6 +62,22 @@ class MessagesController < ApplicationController
       format.html { redirect_to messages_url, notice: 'Message was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  def for_single_trip
+    messages        = Message.where(trip_id: params[:trip_id])
+    final_messages  = []
+    
+    messages.each do |message|
+      json_messages                   = {}
+      json_messages[:body]            = message.body
+      json_messages[:created_at_time] = message.created_at.strftime('%H:%M %p')
+      json_messages[:created_at_date] = message.created_at.strftime('%d %B')
+      json_messages[:owner]           = (message.user == current_user)
+      json_messages[:sender_name]     = message.user.full_name
+      final_messages << json_messages
+    end
+    render json: final_messages
   end
 
   private

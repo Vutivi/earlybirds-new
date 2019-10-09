@@ -6,6 +6,10 @@ Rails.application.routes.draw do
   resources :trips
   resources :plans
   resources :vehicles
+
+  get '/messages/trip/:trip_id', to: 'messages#for_single_trip'
+  get '/users/profile', to: 'profiles#index', as: :profile
+
   devise_for :users, controllers: {
     omniauth_callbacks: 'users/omniauth_callbacks'
   }
