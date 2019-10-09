@@ -6,5 +6,5 @@ test:
 
 production:
   adapter: redis
-  url: redis://localhost:6379/1
-  channel_prefix: Rails_React_Native_Demo_production
+  url: redis://redistogo:2a8b8f6bf0b47ab449987cfa51cfcf00@hammerjaw.redistogo.com:11874/
+  channel_prefix: earlybirds_co_za_production
