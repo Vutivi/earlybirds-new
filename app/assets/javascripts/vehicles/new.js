@@ -12,10 +12,16 @@ $(document).on('turbolinks:load', function(){
 
       $.ajax({
          dataType: 'json',
-         url: 'https://www.carqueryapi.com/api/0.3/?callback=?&cmd=getMakes',
+         url: 'https://vpic.nhtsa.dot.gov/api/vehicles/GetAllMakes?format=json',
+         // url: 'https://www.carqueryapi.com/api/0.3/?callback=?&cmd=getMakes',
          success: function(res) {
-            makes = $.map( res['Makes'], function( n ) {
-               return n['make_display'];
+            // makes = $.map( res['Makes'], function( n ) {
+            //    return n['make_display'];
+            // });
+            alert(res);
+
+            makes = $.map( res['Results'], function(n){
+               return n['Make_Name'];
             });
 
             $.each(makes, function(key, value) {              
