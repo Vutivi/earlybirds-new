@@ -7,7 +7,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'pg', '~> 0.21'
 gem 'puma'
 gem 'rails', '5.2.3'
-gem 'redis'
+gem "redis", "~> 3.0" 
 gem 'jquery-rails'
 gem 'dotenv-rails'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
