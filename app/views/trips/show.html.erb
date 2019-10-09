@@ -1,34 +1,34 @@
 <div class="row middle-section">
-    <div class="trip-img col-md-7">
+    <div class="trip-img col-md-12">
       <h2><i class="fa fa-map-marker" aria-hidden="true"></i> <%= @trip.start_location %> <i class="fa fa-chevron-right" aria-hidden="true"></i> <%= @trip.end_location %></h2>
     </div>
     <div class="trip-img col-md-7">
       <%= image_tag url_for(@trip.vehicle.image), :alt => "#{@trip.vehicle.make}" %>
     </div>
 
-      <div class="trip-info col-md-5">
-        <div>
-          <i class="fa icon fa-arrow-alt-circle-right"></i>
-          <span>Departure: </span> <span><%= @trip.departure_times.strftime("%d %B %Y, %H:%M ")  %></span>
-        </div>
-
-        <div>
-          <i class="fa icon fa-arrow-alt-circle-left"></i>
-          <span>Returns: </span> <span><%= @trip.return_times.strftime("%d %B %Y, %H:%M")  %></span>
-        </div>
-
-        <div>
-            <i class="fa icon fa-comment-dollar"></i>
-            <span>Price: </span><span>R<%= @trip.price %> per trip</span>
-        </div>
-
-        <div>
-            <span>Seats available: </span><span><a href="#" class="trip-owner"><%= @trip.seats %></a> </span>
-        </div>
-
-        <div>
-            <span>Call driver: </span><span><a href="#" class="trip-owner"><%= @trip.user.cellphone %></a> </span>
-        </div>
+      <div class="trip-info col-md-5" style="padding-right: 0">
+      <ul class="list-group">
+          <li class="list-group-item d-flex justify-content-between align-items-center">
+            Departure: 
+            <span class="badge badge-secondary badge-pill"><%= @trip.departure_times.strftime("%d %B %Y, %H:%M ")  %></span>
+          </li>
+          <li class="list-group-item d-flex justify-content-between align-items-center">
+            Returns:
+            <span class="badge badge-secondary badge-pill"><%= @trip.return_times.strftime("%d %B %Y, %H:%M")  %></span>
+          </li>
+          <li class="list-group-item d-flex justify-content-between align-items-center">
+            Price:
+            <span class="badge badge-secondary badge-pill">R<%= @trip.price %> per trip</span>
+          </li>
+          <li class="list-group-item d-flex justify-content-between align-items-center">
+            Seats available:
+            <span class="badge badge-secondary badge-pill"><%= @trip.seats %></span>
+          </li>
+          <li class="list-group-item d-flex justify-content-between align-items-center">
+            Call driver:
+            <span class="badge badge-secondary badge-pill"><%= @trip.user.cellphone %></span>
+          </li>
+      </ul>
 
         <div class="social-icons">
           <%= social_share(@trip) %>

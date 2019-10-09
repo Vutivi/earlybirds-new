@@ -1062,7 +1062,6 @@ GEM
     turbolinks (5.2.0)
       turbolinks-source (~> 5.2)
     turbolinks-source (5.2.0)
-    typedjq-rails (0.1.2)
     tzinfo (1.2.5)
       thread_safe (~> 0.1)
     uglifier (4.1.20)
@@ -1125,7 +1124,6 @@ DEPENDENCIES
   tinify
   toastr-rails
   turbolinks (~> 5)
-  typedjq-rails
   uglifier
   web-console (>= 3.3.0)
   webpacker
