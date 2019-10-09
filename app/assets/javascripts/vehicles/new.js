@@ -18,7 +18,6 @@ $(document).on('turbolinks:load', function(){
             // makes = $.map( res['Makes'], function( n ) {
             //    return n['make_display'];
             // });
-            alert(res);
 
             makes = $.map( res['Results'], function(n){
                return n['Make_Name'];
