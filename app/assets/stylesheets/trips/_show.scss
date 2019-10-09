@@ -1,5 +1,5 @@
 .middle-section{
-    margin: 100px 50px 20px 50px;
+    margin: 50px 50px 20px 50px;
 }
 .trip-destination{
     color: #626668;
@@ -9,7 +9,7 @@
 }
 .middle-section .trip-img{
     border: 1px solid #ddd;
-    padding: 5px;
+    padding: 10px;
     border-radius: 10px;
     margin-bottom: 20px;
     max-height: 500px;
@@ -31,7 +31,7 @@
     padding: 5px;
     border-radius: 10px;
     text-align: left;
-    padding: 10px 0;
+    padding: 10px;
     position: relative;
     margin-bottom: 21px
 }
@@ -138,7 +138,7 @@
 .chat h3{
     margin: 0;
     text-align: center;
-    background: $primary-color;
+    background: $brand;
     color: #fff;
     border-radius: 10px 10px 0 0 ;
     padding: 15px 0
@@ -234,7 +234,7 @@
     transition: all .3s ease-in-out;
 }
 .chat .inputs input[type="submit"]:hover{
-    background: $primary-color;
+    background: $brand;
     border-color:  #fff;
     color: #fff
 }
@@ -243,7 +243,7 @@
 .driver-details h3{
     margin: 0;
     text-align: center;
-    background: $primary-color;
+    background: $brand;
     color: #fff;
     border-radius: 10px 10px 0 0 ;
     padding: 15px 0
@@ -301,7 +301,7 @@ input[type=number]::-webkit-outer-spin-button {
 .contact-driver h3{
     margin: 0;
     text-align: center;
-    background: $primary-color;
+    background: $brand;
     color: #fff;
     border-radius: 10px 10px 0 0 ;
     padding: 15px 0;
@@ -346,7 +346,7 @@ input[type=number]::-webkit-outer-spin-button {
     transition: all .3s ease-in-out;
 }
 .contact form input:last-of-type:hover{
-    background: $primary-color;
+    background: $brand;
     border-color:  #fff;
     color: #fff
  }
@@ -436,4 +436,24 @@ input[type=number]::-webkit-outer-spin-button {
         float: initial;
         margin-left: 60px;
     }
+}
+
+.list-group {
+    font-size: 20px;
+}
+
+.social-icons {
+    margin-top: 10px;
+}
+
+.trip-img h2 {
+    font-size: 16px !important;
+}
+
+.trip-img .col-md-5 {
+    padding-right: 0 !important;
+}
+
+.badge-secondary {
+    background-color: #00B5AD !important;
 }
