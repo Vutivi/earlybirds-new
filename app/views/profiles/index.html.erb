@@ -1,0 +1,20 @@
+<section class="better-space"></section>
+<div class="driver-details">
+    <h3><%= current_user.full_name %> <i class="fa fa-info-circle"></i></h3>
+    <div class="details">
+        <div class="driver-photo">
+            <%= image_tag set_user_profile_image(current_user) %>
+        </div>
+        <div class="detail">
+            <span>Name: <span><%= "#{current_user.full_name}"%></span> </span>
+            <span>Age: <span>35</span> </span>
+            <span>Gender: <span>Male</span> </span>
+            <span>ID: <span>verified</span> <i class="fa fa-close"></i> </span>
+            <span>Email: <span>verified</span> <i class="fa fa-check"></i> </span>
+            <span>Phone:  <span>verified</span> <i class="fa fa-close"></i> </span>
+        </div>
+    </div>
+</div>
+
+<section class="better-space"></section>
+<%= render 'shared/daily_cards', header: 'Your past and current trips', trips: trips_for_user(current_user) %>

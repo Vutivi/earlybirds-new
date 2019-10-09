@@ -12,8 +12,6 @@ App.message = App.cable.subscriptions.create("MessageChannel", {
       $('.messages').append(data.message)
       $('.trip-message').val("");
       $('.messages').scrollTop($('.messages')[0].scrollHeight);
-      toastr.success('Message succesfully sent.');
+      toastr.success('Message succesfully sent');
     }
   });
-
-  

@@ -70,7 +70,7 @@
               <%= image_tag set_user_profile_image(@trip.user) %>
           </div>
           <div class="detail">
-              <span>Name: <span><%= "#{@trip.user.first_name} #{@trip.user.last_name}"%></span> </span>
+              <span>Name: <span><%= "#{@trip.user.full_name}"%></span> </span>
               <span>Age: <span>35</span> </span>
               <span>Gender: <span>Male</span> </span>
                <span>ID: <span>verified</span> <i class="fa fa-close"></i> </span>

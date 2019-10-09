@@ -14,4 +14,10 @@ module ApplicationHelper
             "#{Rails.application.secrets.earlybirds_space_cdn_link}/default_profile_image.png"
         end
     end
+
+    def trips_for_user user
+        user_trips        = current_user.trips.pluck(:id)
+        user_ridden_trips = Rider.where(user: current_user).pluck(:trip_id)
+        Trip.where(id: user_trips + user_ridden_trips)
+    end
 end
