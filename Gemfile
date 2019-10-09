@@ -52,6 +52,10 @@ group :development do
   gem 'web-console', '>= 3.3.0'
 end
 
+group :production do 
+  gem 'rails_12factor'
+end
+
 group :development, :test do
   gem 'rspec-rails', '~> 3.8'
   gem 'pry-byebug'
