@@ -11,6 +11,8 @@ class EventsController < ApplicationController
   # GET /events/1
   # GET /events/1.json
   def show
+    @event_trips   = @event.trips
+    @related_trips = Trip.where(kind: 'social_events').where.not(event: @event)
   end
 
   # GET /events/new
@@ -70,13 +72,13 @@ class EventsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def event_params
-      params.require(:event).permit(:name, :description, :address, :start_time, :end_time, :ticket_link, :expired)
+      params.require(:event).permit(:name, :description, :address, :start_time, :end_time, :ticket_link, :expired, :category_id, :image)
     end
 
     def attach_image
       return unless params[:event][:image].present?
-      # image = open(tinify(params[:event][:image].tempfile))
-      # @event.image.attach(io: image, filename: "#{@event.name}-cover.png")
-      @event.image.attach(io: params[:event][:image], filename: "#{@event.name}-cover.png")
+      image = open(tinify(params[:event][:image].tempfile))
+      @event.image.attach(io: image, filename: "#{@event.name}-cover.png")
+      # @event.image.attach(io: params[:event][:image], filename: "#{@event.name}-cover.png")
     end
 end

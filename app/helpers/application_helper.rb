@@ -15,9 +15,13 @@ module ApplicationHelper
         end
     end
 
-    def trips_for_user user
-        user_trips        = current_user.trips.pluck(:id)
+    def trips_joined_by_user
         user_ridden_trips = Rider.where(user: current_user).pluck(:trip_id)
-        Trip.where(id: user_trips + user_ridden_trips)
+        Trip.where(id: user_ridden_trips)
+    end
+
+    def trips_owned_by_user
+        user_trips        = current_user.trips.pluck(:id)
+        Trip.where(id: user_trips)
     end
 end

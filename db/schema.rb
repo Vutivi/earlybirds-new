@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_07_134523) do
+ActiveRecord::Schema.define(version: 2019_10_10_052404) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -78,6 +78,13 @@ ActiveRecord::Schema.define(version: 2019_10_07_134523) do
     t.index ["visit_token"], name: "index_ahoy_visits_on_visit_token", unique: true
   end
 
+  create_table "categories", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "events", force: :cascade do |t|
     t.string "name"
     t.text "description"
@@ -86,9 +93,11 @@ ActiveRecord::Schema.define(version: 2019_10_07_134523) do
     t.datetime "end_time"
     t.string "ticket_link"
     t.boolean "expired", default: false
+    t.bigint "category_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "slug"
+    t.index ["category_id"], name: "index_events_on_category_id"
     t.index ["slug"], name: "index_events_on_slug", unique: true
   end
 
@@ -101,6 +110,17 @@ ActiveRecord::Schema.define(version: 2019_10_07_134523) do
     t.index ["slug", "sluggable_type", "scope"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type_and_scope", unique: true
     t.index ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type"
     t.index ["sluggable_type", "sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_type_and_sluggable_id"
+  end
+
+  create_table "leads", force: :cascade do |t|
+    t.bigint "trip_id"
+    t.string "first_name"
+    t.string "last_name"
+    t.string "cellphone"
+    t.string "email"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["trip_id"], name: "index_leads_on_trip_id"
   end
 
   create_table "messages", force: :cascade do |t|
@@ -223,6 +243,8 @@ ActiveRecord::Schema.define(version: 2019_10_07_134523) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "events", "categories"
+  add_foreign_key "leads", "trips"
   add_foreign_key "messages", "trips"
   add_foreign_key "messages", "users"
   add_foreign_key "reports", "trips"

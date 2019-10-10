@@ -17,4 +17,6 @@
 </div>
 
 <section class="better-space"></section>
-<%= render 'shared/daily_cards', header: 'Your past and current trips', trips: trips_for_user(current_user) %>
+<%= render 'shared/daily_cards', header: 'Trips offered', trips: trips_owned_by_user %>
+<section class="better-space"></section>
+<%= render 'shared/daily_cards', header: 'Trips joined',  trips: trips_joined_by_user %>

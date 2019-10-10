@@ -1,4 +1,6 @@
-<p id="notice"><%= notice %></p>
+<%
+=begin%>
+ <p id="notice"><%= notice %></p>
 
 <p>
   <strong>Name:</strong>
@@ -31,4 +33,45 @@
 </p>
 
 <%= link_to 'Edit', edit_event_path(@event) %> |
-<%= link_to 'Back', events_path %>
+<%= link_to 'Back', events_path %> 
+<%
+=end%>
+<%= link_to 'Edit', edit_event_path(@event) %> |
+<%= link_to 'Back', events_path %> 
+<section id="sunfish">
+  <div class="banner">
+    <h2 class="mb-3 intro"><%= @event.name %></h2>
+    <div>
+      <figure>
+        <img src="<%= url_for(@event.image)%>" alt="earlybirds.co.za event banner" class="event-show-banner">
+
+        <figcaption class="top">
+            <div class="overlay">
+              <h4 id="text"><i class="fa fa-map-marker" aria-hidden="true"></i>&nbsp;&nbsp;<%= @event.address %></h4>
+              <p id="text"><%= truncate(@event.description, length: 300) %></p>
+              <p id="text">Start date: <%= @event.start_time.strftime("%d %B %Y, %H:%M ") %></p>
+              <p id="text">End date: <%= @event.end_time.strftime("%d %B %Y, %H:%M ") %></p>
+              <p id="text">Ticket link: <%= truncate(@event.ticket_link, length: 45) %></p>
+            </div>
+        <%
+=begin%>
+ <div class="overlay">
+<%
+=end%>
+        </figcaption>
+
+        <figcaption class="button"><%= button_to "Explore all events", events_path, :class => "btn btn-bnb", :method => :get %></figcaption>
+        <figcaption class="sign">
+          <div class="_exn6n2"><svg viewBox="0 0 470 239" fill="#616668" height="50px" aria-label="" width="98.32635983263597px"></svg></div>
+        </figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section class="better-space"></section>
+<%= render 'shared/daily_cards', header: 'Trips for this event', trips: @event_trips %>
+<section class="better-space"></section>
+<%= render 'shared/daily_cards', header: 'Trips for other events', trips: @related_trips %>
+
+

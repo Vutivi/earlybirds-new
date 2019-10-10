@@ -1,4 +1,6 @@
-<p id="notice"><%= notice %></p>
+<%
+=begin%>
+ <p id="notice"><%= notice %></p>
 
 <h1>Vehicles</h1>
 
@@ -24,14 +26,48 @@
         <td><%= vehicle.licence_plate %></td>
         <td><%= vehicle.color %></td>
         <td><%= vehicle.is_verified %></td>
-        <td><%= link_to 'Show', vehicle %></td>
-        <td><%= link_to 'Edit', edit_vehicle_path(vehicle) %></td>
-        <td><%= link_to 'Destroy', vehicle, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        
       </tr>
     <% end %>
   </tbody>
-</table>
+</table> 
+<%
+=end%>
 
 <br>
 
 <%= link_to 'New Vehicle', new_vehicle_path %>
+<h2>Your vehicles</h2>
+<div class="row">
+  <% @vehicles.each do |vehicle| %>
+    <div class="col-md-3 col-sm-12">
+      <!-- Card example 06 -->
+      <div class="card card__dark card__dark--magenta custom">
+        <div class="media media--16-9"> <img src="<%= url_for(vehicle.image) %>" alt="" width="640" height="426" class="lazy"> </div>
+            <div class="primary-title">
+              <div class="primary-text float-right price">
+                  <%= vehicle.color %>
+              </div>
+              <div class="primary-text">
+                  <%= link_to "#{vehicle.make} - #{vehicle.model}", vehicle_path(vehicle) %>
+              </div>
+              <div class="secondary-text">
+                Verified: <%= vehicle.is_verified? %>
+              </div>
+               <div class="action-icons float-left">
+                <div class="social-icons">
+                  <%= link_to 'Show', vehicle %>
+                  <%= link_to 'Destroy', vehicle, method: :delete, data: { confirm: 'Are you sure?' } %>
+                </div>
+              </div>
+            </div>
+            <div class="actions border-top">
+              <div class="action-buttons float-left action-buttons-daily-cards">
+                <%= button_to 'Edit vehicle', edit_vehicle_path(vehicle), method: :get, :class => "button", :type => "button" %>
+              </div>
+          </div>
+        </div> 
+    </div> 
+  <% end %>
+</div>
+

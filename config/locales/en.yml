@@ -43,3 +43,7 @@ en:
     destroy:
       success: 'Succesfully left trip'
       error: 'Could not succesfully leave trip'
+
+  lead:
+    create:
+      success: 'Your contact details have been sent to the driver.'

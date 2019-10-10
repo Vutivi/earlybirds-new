@@ -3,11 +3,13 @@ class Event < ApplicationRecord
     friendly_id :slugger, use: :slugged
 
     validates :name, :start_time, :end_time, :address, :description, presence: true
-
+    
     has_many :trips, dependent: :destroy
     has_one_attached :image
 
     # validate :event_image?
+
+    belongs_to :category
 
     def slugger
         "#{name} #{address}"

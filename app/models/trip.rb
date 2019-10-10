@@ -12,6 +12,7 @@ class Trip < ApplicationRecord
   belongs_to :user
   belongs_to :event, optional: true
   has_many :messages, dependent: :destroy
+  has_many :leads,    dependent: :destroy
 
   enum kind: [
     :social_events,

@@ -28,7 +28,7 @@ $(document).on('turbolinks:load', function(){
             });    
          },
          error: function(res) {
-            alert('Makes api did not find anything');
+            toastr.error('Cars api did not find any makes');
          }
       });
    }
@@ -50,7 +50,7 @@ $(document).on('turbolinks:load', function(){
             });   
          },
          error: function(res) {
-            alert('Models api did not find anything');
+            toastr.error('Cars api did not find any models');
          }
       });
                                            
