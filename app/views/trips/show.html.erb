@@ -39,9 +39,10 @@
           <span> <i class="fa fa-user"></i> 0 Partners <%= " and #{pluralize(visits_count(@trip), 'view')}" if current_user_is_owner?(@trip) %> </span>
           <% unless current_user_is_owner?(@trip) %>
             <button class="join-trip" data-trip-id="<%= @trip.id %>" data-user-id="<%= current_user&.id %>" data-action-type="<%= set_rider_state(@trip) %>" data-rider-id="<%= rider_id(current_user, @trip) %>" ><%= set_rider_state(@trip) %> trip</button>
+          <% else %>
+            <h2><%= link_to "View #{@trip.leads.size} leads for this trip", leads_for_trip_path(@trip.id), :method => :get %></h2>
           <% end %>
       </div>
-      <h2><%= link_to "View #{@trip.leads.size} leads for this trip", leads_for_trip_path(@trip.id), :method => :get %></h2>
   </div>
 
   <div class="col-md-7">
