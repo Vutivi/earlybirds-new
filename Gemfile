@@ -17,6 +17,7 @@ gem 'httparty'
 gem 'toastr-rails'
 gem 'social-share-button'
 gem 'ahoy_matey'
+gem 'image_processing'
 
 # authentication
 gem 'devise'

@@ -47,7 +47,7 @@
           <% @events.each do |event| %>
                   <!-- Card example 06 -->
                   <div class="card card__small card__dark card__dark--magenta">
-                      <div class="media"> <img src="<%= url_for(event&.image) %>" alt="" width="640" height="426"> </div>
+                      <div class="media"> <%= image_tag event&.small, :alt=>"" %> </div>
                       <div class="primary-title">
                           <div class="primary-text"><%= link_to event.name, event_path(event), :class => "event-link" %></div>
                           <div class="secondary-text">In <%= event.address %></div>

@@ -43,7 +43,7 @@
     <h2 class="mb-3 intro"><%= @event.name %></h2>
     <div>
       <figure>
-        <img src="<%= url_for(@event.image)%>" alt="earlybirds.co.za event banner" class="event-show-banner">
+        <%= image_tag @event.hero, :alt=>"earlybirds.co.za event banner", :class=>"event-show-banner" %>
 
         <figcaption class="top">
             <div class="overlay">
