@@ -1,4 +1,6 @@
-<p id="notice"><%= notice %></p>
+<%
+=begin%>
+ <p id="notice"><%= notice %></p>
 
 <h1>Categories</h1>
 
@@ -26,4 +28,68 @@
 
 <br>
 
-<%= link_to 'New Category', new_category_path %>
+<%= link_to 'New Category', new_category_path %> 
+<%
+=end%>
+<%
+=begin%>
+ <p id="notice"><%= notice %></p>
+
+<h1>Events</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Start time</th>
+      <th>End time</th>
+      <th>Ticket link</th>
+      <th>Expired</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @events.each do |event| %>
+      <tr>
+        <td><%= event.name %></td>
+        <td><%= event.description %></td>
+        <td><%= event.start_time %></td>
+        <td><%= event.end_time %></td>
+        <td><%= event.ticket_link %></td>
+        <td><%= event.expired %></td>
+        <td><%= link_to 'Show', event %></td>
+        <td><%= link_to 'Edit', edit_event_path(event) %></td>
+        <td><%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Event', new_event_path %> 
+<%
+=end%>
+<section class="better-space"></section>
+<%= render 'shared/events_advert'%>
+<section class="better-space"></section>
+  <h2>Our categories</h2>
+      <div data-slick='{"slidesToShow": 3, "slidesToScroll": 3}' class="scroller responsive data">
+          <% @categories.each do |category| %>
+                  <!-- Card example 06 -->
+                  <div class="card card__small card__dark card__dark--magenta">
+                      <div class="media"> <%= image_tag category&.small, :alt=>"" %> </div>
+                      <div class="primary-title">
+                          <div class="primary-text"><%= link_to category.name, category_path(category), :class => "event-link" %></div>
+                      </div>
+                      <div class="actions border-top">
+                          <div class="action-buttons">
+                              <%= button_to "Learn more", category_path(category), :method => :get, :class => "button", :type => "button" %>
+                          </div>
+                      </div>
+                  </div>
+          <% end %>
+  </div>
+

@@ -12,6 +12,7 @@ $(document).on('turbolinks:load', function() {
     $("select").select2();
   });
 
+
   $(".lazy").lazy();
   
   $('.responsive').slick({

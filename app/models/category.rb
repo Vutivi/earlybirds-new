@@ -1,4 +1,6 @@
 class Category < ApplicationRecord
+    include Resizable
+
     extend FriendlyId
     friendly_id :slugger, use: :slugged
 
@@ -7,6 +9,9 @@ class Category < ApplicationRecord
     validates :name, length: {minimum: 3, maximum: 30}
     validates :description, length: {minimum: 3, maximum: 500}
     has_many :events
+    validate :category_image?
+
+    has_one_attached :image
 
     def slugger
         name
@@ -16,4 +21,8 @@ class Category < ApplicationRecord
         name_changed?
     end
 
+
+    def category_image?
+        errors.add(:base, 'Please upload a cover image for your event.') unless image.attached?
+    end
 end

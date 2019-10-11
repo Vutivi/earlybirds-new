@@ -1,4 +1,6 @@
-<p id="notice"><%= notice %></p>
+<%
+=begin%>
+ <p id="notice"><%= notice %></p>
 
 <p>
   <strong>Name:</strong>
@@ -11,4 +13,43 @@
 </p>
 
 <%= link_to 'Edit', edit_category_path(@category) %> |
-<%= link_to 'Back', categories_path %>
+<%= link_to 'Back', categories_path %> 
+<%
+=end%>
+<%= link_to 'Edit', edit_category_path(@category) %> |
+<%= link_to 'Back', categories_path %> 
+<section id="sunfish">
+  <div class="banner">
+    <h2 class="mb-3 intro"><%= @category.name %></h2>
+    <div>
+      <figure>
+        <%= image_tag @category.hero, :alt=>"earlybirds.co.za category banner", :class=>"event-show-banner" %>
+
+        <figcaption class="top">
+            <div class="overlay">
+              <p id="text"><%= truncate(@category.description, length: 600) %></p>
+            </div>
+        <%
+=begin%>
+ <div class="overlay">
+<%
+=end%>
+        </figcaption>
+
+        <figcaption class="button"><%= button_to "Explore all events categories", categories_path, :class => "btn btn-bnb", :method => :get %></figcaption>
+        <figcaption class="sign">
+          <div class="_exn6n2"><svg viewBox="0 0 470 239" fill="#616668" height="50px" aria-label="" width="98.32635983263597px"></svg></div>
+        </figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<%
+=begin%>
+ <section class="better-space"></section>
+<%= render 'shared/daily_cards', header: 'Trips for this event', trips: @event_trips %>
+<section class="better-space"></section>
+<%= render 'shared/daily_cards', header: 'Trips for other events', trips: @related_trips %> 
+<%
+=end%>
