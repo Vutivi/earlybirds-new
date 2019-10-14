@@ -1,0 +1,7 @@
+id,from,to,departs_at,arrive_at,user_id,price,trip_type,vehicle_id,created_at,updated_at,from_id,to_id,returns_at,slug
+6,Birch acres ,Centurion ,2000-01-01 06:00:00 UTC,2000-01-01 07:00:00 UTC,11,35,Return,4,2019-05-04 11:27:07 UTC,2019-08-05 20:18:52 UTC,,,,lift-club-from-birch-acres-to-centurion-by-nhlamulo
+11,Kempton park ,Randburg ,2000-01-01 06:00:00 UTC,2000-01-01 07:00:00 UTC,46,80,Return,14,2019-07-08 09:08:05 UTC,2019-08-05 20:18:52 UTC,,,,lift-club-from-kempton-park-to-randburg-by-nyiko
+12,Rosettenville ,Melrose arch ,2000-01-01 06:00:00 UTC,2000-01-01 18:30:00 UTC,49,30,Return,15,2019-07-11 06:30:15 UTC,2019-08-05 20:18:52 UTC,,,,lift-club-from-rosettenville-to-melrose-arch-by-phelisa
+15,Berea ,Melrose arch ,2000-01-01 06:30:00 UTC,2000-01-01 07:00:00 UTC,19,30,Return,21,2019-08-05 13:07:37 UTC,2019-08-05 20:18:53 UTC,,,2000-01-01 16:00:00 UTC,lift-club-from-berea-to-melrose-arch-by-danny-simfukwe
+16,Sebokeng zone 13  ,Edenvale ,2000-01-01 05:35:00 UTC,2000-01-01 07:15:00 UTC,67,R100,Return,22,2019-08-05 17:41:15 UTC,2019-08-05 20:18:53 UTC,,,2000-01-01 16:15:00 UTC,lift-club-from-sebokeng-zone-13-to-edenvale-by-aphiwe
+13,Protea glen ext 11 ,Randburg ,2000-01-01 05:00:00 UTC,2000-01-01 07:15:00 UTC,13,30,Return,6,2019-07-16 09:41:15 UTC,2019-09-26 15:06:21 UTC,,,2000-01-01 19:00:00 UTC,lift-club-from-protea-glen-ext-12-to-pretoria-by-dzunisani

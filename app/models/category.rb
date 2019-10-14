@@ -23,6 +23,6 @@ class Category < ApplicationRecord
 
 
     def category_image?
-        errors.add(:base, 'Please upload a cover image for your event.') unless image.attached?
+        errors.add(:base, 'Please upload a cover image for your category.') unless image.attached?
     end
 end
