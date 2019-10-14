@@ -3,7 +3,7 @@
       <h2><i class="fa fa-map-marker" aria-hidden="true"></i> <%= @trip.start_location %> <i class="fa fa-chevron-right" aria-hidden="true"></i> <%= @trip.end_location %></h2>
     </div>
     <div class="trip-img col-md-7">
-      <%= image_tag url_for(@trip.vehicle.image), :alt => "#{@trip.vehicle.make}" %>
+      <%= image_tag @trip.vehicle.large, :alt => "#{@trip.vehicle.make}" %>
     </div>
 
       <div class="trip-info col-md-5" style="padding-right: 0">
@@ -37,11 +37,12 @@
         
       <div>
           <span> <i class="fa fa-user"></i> 0 Partners <%= " and #{pluralize(visits_count(@trip), 'view')}" if current_user_is_owner?(@trip) %> </span>
-            <% unless current_user_is_owner?(@trip) %>
-              <button class="join-trip" data-trip-id="<%= @trip.id %>" data-user-id="<%= current_user&.id %>" data-action-type="<%= set_rider_state(@trip) %>" data-rider-id="<%= rider_id(current_user, @trip) %>" ><%= set_rider_state(@trip) %> trip</button>
-            <% end %>
-        </div>
-
+          <% unless current_user_is_owner?(@trip) %>
+            <button class="join-trip" data-trip-id="<%= @trip.id %>" data-user-id="<%= current_user&.id %>" data-action-type="<%= set_rider_state(@trip) %>" data-rider-id="<%= rider_id(current_user, @trip) %>" ><%= set_rider_state(@trip) %> trip</button>
+          <% else %>
+            <h2><%= link_to "View #{@trip.leads.size} leads for this trip", leads_for_trip_path(@trip.id), :method => :get %></h2>
+          <% end %>
+      </div>
   </div>
 
   <div class="col-md-7">
@@ -96,18 +97,21 @@
               <span><span>Member since <%= @trip.user.created_at.strftime("%B, %Y") %></span> </span>
           </div>
       </div>
-      <div class="contact-driver">
-      <h3>Contact driver <i class="fa fa-paper-plane"></i></h3>
-      <div class="contact">
-          <form>
-              <input type="text" placeholder="First Name">
-              <input type="text" placeholder="Last Name">
-              <input type="email" placeholder="Email">
-              <input type="number" placeholder="Phone number">
-              <input type="submit" value="Send">
-          </form>
-      </div>
-  </div>
+      <% unless current_user_is_owner?(@trip) %>
+        <div class="contact-driver">
+          <h3>Contact driver <i class="fa fa-paper-plane"></i></h3>
+          <div class="contact">
+            <form action="/leads" method="POST">
+              <input type="hidden" id="lead[trip_id]" name="lead[trip_id]" value="<%= @trip.id %>" required>
+              <input type="text" placeholder="First Name" id="lead[first_name]" name="lead[first_name]" required>
+              <input type="text" placeholder="Last Name" id="lead[last_name]" name="lead[last_name]" required>
+              <input type="email" placeholder="Email" id="lead[email]" name="lead[email]" required>
+              <input type="number" placeholder="Phone number" id="lead[cellphone]" name="lead[cellphone]" required>
+              <input type="submit" value="Send" class="leads-form">
+            </form>
+          </div>
+        </div>
+      <% end %>
   </div>
 </div>
      

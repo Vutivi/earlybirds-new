@@ -1,14 +1,18 @@
 Rails.application.routes.draw do
+  resources :categories
+  resources :leads, only: [:create]
   resources :riders, only: [:create, :destroy]
-  resources :messages
+  resources :messages, only: [:create, :index]
   resources :events
   resources :reports
   resources :trips
   resources :plans
   resources :vehicles
 
-  get '/messages/trip/:trip_id', to: 'messages#for_single_trip'
-  get '/users/profile', to: 'profiles#index', as: :profile
+  get '/messages/trip/:trip_id',  to: 'messages#for_single_trip'
+  get '/users/profile',           to: 'profiles#index',           as: :profile
+  get '/users/settings',          to: 'profiles#settings',        as: :settings
+  get '/leads/trip/:trip_id',     to: 'leads#for_single_trip',    as: :leads_for_trip
 
   devise_for :users, controllers: {
     omniauth_callbacks: 'users/omniauth_callbacks'

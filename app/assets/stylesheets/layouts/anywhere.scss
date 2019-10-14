@@ -1,0 +1,273 @@
+body {
+    background-color: #ffffff !important;
+}
+
+h2 {
+    color: $secondary-color !important;
+    font-weight: 800 !important;
+    font-size: 25px !important;
+    line-height: 30px !important;
+    letter-spacing: normal !important;
+    padding-top: 2px !important;
+    padding-bottom: 2px !important;
+}
+
+.content{
+    overflow-y: scroll !important;
+    height: 100px !important; 
+}
+
+// Checkbox
+div.checkbox.switcher, div.radio.switcher {
+  label {padding: 0;
+    * {vertical-align: middle;}
+    input {display: none;
+      &+span {position: relative; display: inline-block; margin-right: 10px; width: 56px; height: 28px; background: $secondary-color; border: 1px solid $secondary-background; border-radius: 50px; transition: all 0.3s ease-in-out;
+        small {position: absolute; display: block; width: 50%; height: 100%; background: #fff; border-radius: 50%; transition: all 0.3s ease-in-out; left: 0;}
+      }
+      &:checked+span {background: $brand; border-color: $brand;
+        small {
+            left: 50%;
+        }
+      }
+    }
+  }
+}
+
+a {
+color: $secondary-color !important;
+}
+
+a.event-link {
+    color: $primary-color !important;
+}
+
+$size: 20px;
+
+.social-share-button {
+  padding: 8px 0px;
+  .ssb-icon {
+    background-size: $size $size;
+    height: $size;
+    width: $size;
+  }
+}
+
+.brronC {
+  width: 100%;
+  display: flex;
+  -webkit-box-pack: center;
+  justify-content: center;
+  flex-direction: column;
+  background-color: #f8f8fa;
+  -webkit-box-align: center;
+  align-items: center;
+  padding: 32px 8px;
+}
+
+// // Carousel
+// .MultiCarousel { float: left; overflow: hidden; padding: 15px; width: 100%; position:relative; }
+//     .MultiCarousel .MultiCarousel-inner { transition: 1s ease all; float: left; }
+//         .MultiCarousel .MultiCarousel-inner .item { float: left;}
+//         .MultiCarousel .MultiCarousel-inner .item > div { text-align: center; padding:10px; margin:10px; background:#f1f1f1; color:#666;}
+//     .MultiCarousel .leftLst, .MultiCarousel .rightLst { position:absolute; border-radius:50%;top:calc(50% - 20px); }
+//     .MultiCarousel .leftLst { left:0; }
+//     .MultiCarousel .rightLst { right:0; }
+    
+//         .MultiCarousel .leftLst.over, .MultiCarousel .rightLst.over { pointer-events: none; background:#ccc; }
+
+/* the slides */
+.slick-slide {
+  margin: 0 10px;
+}
+/* the parent */
+.slick-list {
+  margin: 0 -10px;
+}
+
+.slick-slide {
+  margin: 0px 10px;
+}
+
+.slick-prev:before,
+.slick-next:before {
+    color: $brand;
+}
+
+.slick-prev {
+  left: -12px;
+}
+.slick-next {
+  right: -12px;
+}
+
+.page {
+  width: 650px;
+  margin: 10% auto 0;
+  padding: 20px;
+  background: #e5e5e5;
+  
+  &-title {
+      margin-top: 5px;
+      margin-bottom: 10px;
+  }
+  
+  &-content {
+      background: #fff;
+      padding: 25px 0;
+  }
+}
+
+.placeholder-content {
+  height: 205px;
+  overflow: hidden;
+  background: #000;
+  position: relative;
+  
+  // Animation
+  animation-duration: 1.7s;
+  animation-fill-mode: forwards;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  animation-name: placeholderAnimate;
+  background: #f6f7f8; // Fallback
+  background: linear-gradient(to right, #eee 2%, #ddd 18%, #eee 33%);
+  background-size: 1300px; // Animation Area
+  
+  &_item {
+      width: 100%;
+      height: 20px;
+      position: absolute;
+      background: #fff;
+      z-index: 2;
+      
+      &:after,
+      &:before {
+          width: inherit;
+          height: inherit;
+          content: '';
+          position: absolute;
+      }
+      
+      &:nth-child(1) {
+          top: 0;
+          left: 0;
+      }
+      
+      &:nth-child(2) {
+          top: 20px;
+          left: 0;
+          width: 10%;
+          height: 90px;
+      }
+      
+      &:nth-child(3) {
+          top: 0px;
+          left: 0;
+          width: 10%;
+          height: 100%;
+      }
+      
+      &:nth-child(4) {
+          top: 20px;
+          width: 20px;
+          left: 170px;
+          height: 90px;
+      }
+      
+      &:nth-child(5) {
+          top: 40px;
+          left: 190px;
+          height: 12px;
+      }
+      
+      &:nth-child(6) {
+          top: 75px;
+          left: 190px;
+          height: 12px;
+      }
+      
+      &:nth-child(7) {
+          top: 20px;
+          right: 0;
+          width: 23%;
+          height: 20px;
+      }
+      
+      &:nth-child(8) {
+          top: 0;
+          right: 0;
+          width: 10%;
+          height: 100%;
+      }
+      
+      &:nth-child(9) {
+          top: 110px;
+          height: 17px;
+          left: 0;
+      }
+
+      &:nth-child(10) {
+          top: 149px;
+          height: 12px;
+          left: 0;
+      }
+      
+      &:nth-child(11) {
+          top: 183px;
+          left: 0;
+          height: 100%;
+      }
+  }
+}
+
+@keyframes placeholderAnimate {
+  0%{ background-position: -650px 0; }
+  100%{ background-position: 650px 0; }
+}
+
+
+.apple_pagination {
+  background: #f1f1f1;
+  border: 1px solid #e5e5e5;
+  text-align: center;
+  padding: 1em;
+  cursor: default; }
+  .apple_pagination a, .apple_pagination span {
+    padding: 0.2em 0.3em; }
+  .apple_pagination .disabled {
+    color: #aaaaaa; }
+  .apple_pagination .current {
+    font-style: normal;
+    font-weight: bold;
+    background-color: #bebebe;
+    display: inline-block;
+    width: 1.4em;
+    height: 1.4em;
+    line-height: 1.5;
+    -moz-border-radius: 1em;
+    -webkit-border-radius: 1em;
+    border-radius: 1em;
+    text-shadow: rgba(255, 255, 255, 0.8) 1px 1px 1px; }
+  .apple_pagination a {
+    text-decoration: none;
+    color: black; }
+    .apple_pagination a:hover, .apple_pagination a:focus {
+      text-decoration: underline; }
+
+.event-show-banner{
+  object-fit: cover;
+}
+
+.overlay {
+  margin-top: 10px;
+  margin-left: 10px;
+  height: 180px; 
+  width: 100%; 
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+#text {
+  padding: 1px 10px;
+}
+

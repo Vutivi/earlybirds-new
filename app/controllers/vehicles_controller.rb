@@ -2,13 +2,13 @@ class VehiclesController < ApplicationController
   include TinifyImage
 
   before_action :set_vehicle, only: [:show, :edit, :update, :destroy]
-  # after_action  :attach_image, only: [:create, :update]
+  after_action  :attach_image, only: [:create, :update]
   # before_action :require_vehicle_images, only: %i[update create]
 
   # GET /vehicles
   # GET /vehicles.json
   def index
-    @vehicles = Vehicle.all
+    @vehicles = Vehicle.where(user: current_user)
   end
 
   # GET /vehicles/1
@@ -33,7 +33,6 @@ class VehiclesController < ApplicationController
       
     respond_to do |format|
       if @vehicle.save
-        @vehicle.image.attach(params[:vehicle][:image])
         format.html { redirect_to @vehicle, notice: 'Vehicle was successfully created.' }
         format.json { render :show, status: :created, location: @vehicle }
       else

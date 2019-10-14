@@ -4,7 +4,7 @@
         <% @cross_province_trips.each do |trip| %>
                 <!-- Card example 06 -->
                 <div class="card card__dark card__dark--magenta">
-                    <div class="media media--16-9"> <img src="<%= url_for(trip.vehicle.image) %>" alt="" width="640" height="426"> </div>
+                    <div class="media media--16-9"> <%= image_tag trip.vehicle.thumbnail, :alt=>"" %></div>
                     <div class="primary-title">
                         <div class="primary-text float-right">
                             R<%= trip.price %>
@@ -18,7 +18,7 @@
                         </div>
                         <div class="supporting-text">Departs on <%= trip.departure_times.strftime('%d-%M-%Y, %H:%m') %></div>
                         <div class="actions border-top">
-                            <div class="action-buttons float-right">
+                            <div class="action-buttons float-right action-buttons-daily-cards">
                                 <%= button_to "View Details", trip_path(trip), :method => :get, :class => "button", :type => "button" %>
                             </div>
                             <div class="action-icons">

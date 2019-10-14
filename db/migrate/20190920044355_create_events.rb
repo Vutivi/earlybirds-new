@@ -8,6 +8,7 @@ class CreateEvents < ActiveRecord::Migration[5.2]
       t.datetime :end_time
       t.string :ticket_link
       t.boolean :expired, default: false
+      t.references :category, foreign_key: true
 
       t.timestamps
     end
