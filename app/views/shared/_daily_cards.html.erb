@@ -2,21 +2,27 @@
 <div class="row">
   <% trips.first(4).each do |trip| %>
     <div class="col-md-3 col-sm-12">
-      <!-- Card example 06 -->
+
       <div class="card card__dark card__dark--magenta custom">
         <div class="media media--16-9"> <img src="<%= url_for(trip.vehicle.thumbnail) %>" alt="" width="640" height="426" class="lazy"> </div>
           <div class="primary-title">
-            <div class="primary-text float-right price">
+            <div class="primary-text float-right price btn btn-info">
                 R<%= trip.price %>
             </div>
             <div class="primary-text">
-                <%= link_to "#{trip.start_location.split(',')[0]} - #{trip.end_location.split(',')[0]}", trip_path(trip) %>
+              <p class="text-center"><%= trip.start_location.split(',')[0] %></p>
+                <div class="from_to">
+                  <span>TO</span> 
+                 </div>
+              <p class="text-center"><%= trip.end_location.split(',')[0] %></p> 
             </div>
-            <div class="secondary-text">
-                <div class="action-icons icon-color--yellow"><span><i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i></div>
-                Super driver</div>
             </div>
-            <div class="supporting-text">Departs at <%= trip.departure_times.strftime('%H:%m') %> daily</div>
+            <div class="d-inline p-2 text-center" style="margin-top:10px;">Departs at <%= trip.departure_times.strftime('%H:%m') %> daily</div>
+            <div class="d-inline p-2 bg-secondary text-white text-center">
+                <div class="action-icons icon-color--yellow"><span><i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i>
+             </div>
+              Super driver
+             </div>
             <div class="actions border-top">
               <div class="action-buttons float-right action-buttons-daily-cards">
                 <%= button_to "View Details", trip_path(trip), :method => :get, :class => "button", :type => "button" %>
