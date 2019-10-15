@@ -48,7 +48,7 @@
         <figcaption class="top">
             <div class="overlay">
               <h4 id="text"><i class="fa fa-map-marker" aria-hidden="true"></i>&nbsp;&nbsp;<%= @event.address %></h4>
-              <p id="text"><%= truncate(@event.description, length: 200) %></p>
+              <p id="text"><%= truncate(@event.description, length: 150) %></p>
               <p id="text">Start date: <%= @event.start_time.strftime("%d %B %Y, %H:%M ") %></p>
               <p id="text">End date: <%= @event.end_time.strftime("%d %B %Y, %H:%M ") %></p>
               <p id="text">Ticket link: <%= truncate(@event.ticket_link, length: 45) %></p>
