@@ -10,7 +10,7 @@
                             R<%= trip.price %>
                         </div>
                         <div class="primary-text">
-                            <%= link_to "#{trip.start_location.split(',')[0]} - #{trip.end_location.split(',')[0]}", trip_path(trip) %>
+                            <%= link_to "#{trip.short_start_location} - #{trip.short_end_location}", trip_path(trip) %>
                         </div>
                         <div class="secondary-text">
                             <div class="action-icons icon-color--yellow"><span><i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i></div>
