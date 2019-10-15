@@ -1,76 +1,32 @@
 
-    <h2>Cross province home lift clubs</h2>
-    <div data-slick='{"slidesToShow": 4, "slidesToScroll": 4}' class="scroller responsive data">
-        <% @cross_province_trips.each do |trip| %>
-                <!-- Card example 06 -->
-                <%
-=begin%>
- <div class="card card__dark card__dark--magenta"> 
-<%
-=end%>
-                      <div class="card card__dark card__dark--magenta custom">
-        <div class="media media--16-9"> <%= image_tag trip.vehicle.thumbnail, :alt=>"" %></div>
+<h2>Cross province home lift clubs</h2>
+<div data-slick='{"slidesToShow": 4, "slidesToScroll": 4}' class="scroller responsive data">
+    <% @cross_province_trips.each do |trip| %>
+        <!-- Card example 06 -->
+        <div class="card card__dark card__dark--magenta">
+            <div class="media media--16-9"> <%= image_tag trip.vehicle.thumbnail, :alt=>"" %></div>
             <div class="primary-title">
-              <div class="primary-text float-right price btn btn-info">
-                  R<%= trip.price %>
-              </div>
-              <div class="primary-text">
-                <p class="text-center" style="padding-bottom:10px"><%= trip.short_start_location %></p>
-                  <div class="from_to">
-                    <span>TO</span> 
-                  </div>
-                <p class="text-center"><%= trip.short_end_location %></p> 
-              </div>
-            </div>
-            <div class="d-inline p-2 text-center" style="margin-top:10px;">Departs at <%= trip.departure_times.strftime('%d-%M-%Y, %H:%m %p') %></div>
-            <div class="d-inline p-2 bg-secondary text-white text-center">
-                <div class="action-icons icon-color--yellow"><span><i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i>
-             </div>
-              Super driver
-             </div>
-            <div class="actions border-top">
-              <div class="action-buttons float-right action-buttons-daily-cards">
-                <%= button_to "View Details", trip_path(trip), :method => :get, :class => "button", :type => "button" %>
-              </div>
-              <div class="action-icons float-left">
-                <div class="social-icons">
-                  <%= social_share(trip) %>
+                <div class="primary-text float-right">
+                    R<%= trip.price %>
                 </div>
-              </div>
-          </div>
+                <div class="primary-text">
+                    <%= link_to "#{trip.short_start_location} - #{trip.short_end_location}", trip_path(trip) %>
+                </div>
+                <div class="secondary-text">
+                    <div class="action-icons icon-color--yellow"><span><i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i></div>
+                    Super driver</div>
+                </div>
+                <div class="supporting-text">Departs on <%= trip.departure_times.strftime('%d-%M-%Y, %H:%m %p') %></div>
+                <div class="actions border-top">
+                    <div class="action-buttons float-right action-buttons-daily-cards">
+                        <%= button_to "View Details", trip_path(trip), :method => :get, :class => "button", :type => "button" %>
+                    </div>
+                    <div class="action-icons">
+                        <div class="social-icons">
+                            <%= social_share(trip) %>
+                        </div>
+                    </div>
+                </div>
         </div> 
-                    <%
-=begin%>
- <div class="media media--16-9"> <%= image_tag trip.vehicle.thumbnail, :alt=>"" %></div>
-                    <div class="primary-title">
-                        <div class="primary-text float-right">
-                            R<%= trip.price %>
-                        </div>
-                        <div class="primary-text">
-                            <%= link_to "#{trip.short_start_location} - #{trip.short_end_location}", trip_path(trip) %>
-                        </div>
-                        <div class="secondary-text">
-                            <div class="action-icons icon-color--yellow"><span><i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i></div>
-                            Super driver</div>
-                        </div>
-                        <div class="supporting-text">Departs on <%= trip.departure_times.strftime('%d-%M-%Y, %H:%m %p') %></div>
-                        <div class="actions border-top">
-                            <div class="action-buttons float-right action-buttons-daily-cards">
-                                <%= button_to "View Details", trip_path(trip), :method => :get, :class => "button", :type => "button" %>
-                            </div>
-                            <div class="action-icons">
-                                <div class="social-icons">
-                                    <%= social_share(trip) %>
-                                </div>
-                            </div>
-                
-            </div> 
-<%
-=end%>
-        <%
-=begin%>
- </div>  
-<%
-=end%>
-<% end %>
+    <% end %>
 </div>

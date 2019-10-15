@@ -43,7 +43,7 @@ class Trip < ApplicationRecord
   private
 
   def one_work_trip_per_driver
-    if Trip.work_trips_for_user(user_id).present?
+    if kind.eql?(1) && Trip.work_trips_for_user(user_id).present?
       errors.add(:base, 'You can only add one work trip.')
     end
   end
