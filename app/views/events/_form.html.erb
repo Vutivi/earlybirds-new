@@ -12,7 +12,7 @@
     <%= f.input :ticket_link %>
     <%= f.association :category %>
     <%= f.input :expired %>
-    <%= f.input :image, as: :file %>
+    <%= f.input :image, as: :file, :hint=>'Cover image for category'  %>
   </div>
 
   <div class="form-actions">

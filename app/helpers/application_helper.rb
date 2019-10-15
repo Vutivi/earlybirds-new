@@ -17,11 +17,11 @@ module ApplicationHelper
 
     def trips_joined_by_user
         user_ridden_trips = Rider.where(user: current_user).pluck(:trip_id)
-        Trip.where(id: user_ridden_trips)
+        Trip.where(id: user_ridden_trips).paginate(page: params[:page], per_page: 8)
     end
 
     def trips_owned_by_user
-        user_trips        = current_user.trips.pluck(:id)
-        Trip.where(id: user_trips)
+        user_trips = current_user.trips.pluck(:id)
+        Trip.where(id: user_trips).paginate(page: params[:page], per_page: 8)
     end
 end

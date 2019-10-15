@@ -2,13 +2,13 @@
   <%= f.error_notification %>
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
-        <%= f.input :kind, as: :select, collection: Trip.kinds.map { |key, value| [key.humanize, key] }, class: "ui fluid dropdown" %>
+        <%= f.input :kind, as: :select, collection: Trip.kinds.map { |key, value| [key.humanize, key] }%>
         <%= f.association :event %>
-        <%= f.input :start_location, {:type => "search", :placeholder => "Where do we start our trip?" } %>
-        <%= f.input :end_location, {:type => "search", :placeholder => "Where does our trip end?"} %>
+        <%= f.input :start_location, {:type => "search", :placeholder => "Where do we start our trip?", :hint => "Submit the entire address." } %>
+        <%= f.input :end_location, {:type => "search", :placeholder => "Where does our trip end?", :hint => "Submit the entire address."} %>
   
-        <%= f.input :seats %>
-        <%= f.input :price %>
+        <%= f.input :seats, :placeholder => "Number of seats available to share" %>
+        <%= f.input :price, :placeholder => "Price per single ride", :hint => "Normal taxi prices are recommended." %>
         <div class="checkbox switcher">
             <label for="round_trip">
                 <input type="checkbox" id="round_trip" value="" name="round_trip" >
@@ -16,10 +16,10 @@
                 <small><b>Single trip?</b></small>
             </label>
         </div>
-        <%= f.input :departure_times %>
-        <%= f.input :return_times %>
-        <%= f.association :plan %>
-        <%= f.association :vehicle %>
+        <%= f.input :departure_times, :hint => "When is the departure date? Set just the time and leave the date as is if this is a daily work trip." %>
+        <%= f.input :return_times, :hint => "When is the return date? Set just the time and leave the date as is if this is a daily work trip." %>
+        <%= f.association :plan, :hint => "All rides are free." %>
+        <%= f.association :vehicle, :collection => Vehicle.all, :label_method => :make, :value_method => :id %>
         <div class="form-actions">
             <%= f.button :submit %>
         </div>

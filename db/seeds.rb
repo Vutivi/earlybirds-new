@@ -73,19 +73,14 @@ users_csv.each do |row|
   u.confirmed_at = row['confirmed_at']
   u.confirmation_sent_at = row['confirmation_sent_at']
   u.unconfirmed_email = row['unconfirmed_email']
-  u.created_at = row['created_at ']
-  u.updated_at = row['updated_at']
   u.provider = row['provider']
-  u.uid = row['uid']
-  u.tokens = row['tokens']
+  # u.uid = row['uid']
+  # u.tokens = row['tokens']
   u.cellphone = row['cellphone']
 
-  if u.save(validate: false)
-    u.profile_image.attach(io: open(row['image_url']), filename: "#{u.first_name}#{u.id}.png")
-  else
-    puts u.errors.full_messages
-  end
+  u.save(validate: false)
 
   puts "#{u.first_name} has been stored succesfully!"
 end
+
 

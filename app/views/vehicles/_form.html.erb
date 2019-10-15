@@ -11,10 +11,14 @@
 =end%>
     <%= f.input :make, :collection => [] %> 
     <%= f.input :model, :collection => [] %>
-    <%= f.input :licence_plate %>
+    <%= f.input :licence_plate, :placeholder => 'Do not leave any spaces.', :hint => 'We do not share this, it is used to verify you are the owner' %>
     <%= f.input :color %>
-    <%= f.input :is_verified %>
-    <%= f.input :image, as: :file %>
+    <%
+=begin%>
+ <%= f.input :is_verified %> 
+<%
+=end%>
+    <%= f.input :image, as: :file, :hint => 'Avoid showing the plate number.' %>
 
   <div class="form-actions">
     <%= f.button :submit %>

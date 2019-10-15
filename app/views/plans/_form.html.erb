@@ -4,13 +4,13 @@
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
   <div class="form-inputs">
-    <%= f.input :name %>
-    <%= f.input :price %>
-    <%= f.input :length %>
-    <%= f.input :catch_phrase %>
-    <%= f.input :description %>
-    <%= f.input :perks %>
-    <%= f.input :daily_price %>
+    <%= f.input :name, :placeholder=>'Name of payment plan' %>
+    <%= f.input :price, :placeholder=>'Price of plan' %>
+    <%= f.input :length, :placeholder=>'Number of days active' %>
+    <%= f.input :catch_phrase, :placeholder=>'Selling phrase' %>
+    <%= f.input :description, :placeholder=>'Description of plan' %>
+    <%= f.input :perks, :placeholder=>'Perks for choosing this plan', :hint=>'This is stored as json.' %>
+    <%= f.input :daily_price, :placeholder=>'Price per each day in number of days active', :hint=>'Calculated as (price/length).'%>
   </div>
 
   <div class="form-actions">

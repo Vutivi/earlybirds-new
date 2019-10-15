@@ -4,17 +4,17 @@
     <div class="col-md-3 col-sm-12">
 
       <div class="card card__dark card__dark--magenta custom">
-        <div class="media media--16-9"> <img src="<%= url_for(trip.vehicle.thumbnail) %>" alt="" width="640" height="426" class="lazy"> </div>
+        <div class="media media--16-9"> <img src="<%= url_for(trip.vehicle.thumbnail) %>"> </div>
           <div class="primary-title">
             <div class="primary-text float-right price btn btn-info">
                 R<%= trip.price %>
             </div>
             <div class="primary-text">
-              <p class="text-center" style="padding-bottom:10px"><%= trip.start_location.split(',')[0] %></p>
+              <p class="text-center" style="padding-bottom:10px"><%= trip.short_start_location %></p>
                 <div class="from_to">
                   <span>TO</span> 
                  </div>
-              <p class="text-center"><%= trip.end_location.split(',')[0] %></p> 
+              <p class="text-center"><%= trip.short_end_location %></p> 
             </div>
             </div>
             <div class="d-inline p-2 text-center" style="margin-top:10px;">Departs at <%= trip.departure_times.strftime('%H:%m') %> daily</div>
@@ -37,4 +37,4 @@
     </div> 
   <% end %>
 </div>
-<h2 class="view-more"><%= "Show all #{trips.size - 4} + lift clubs <i class='fa fa-angle-right'></i>".html_safe if (trips.size - 4) > 0 %></h2>
+<h3 class="view-more"><%= "Show all #{trips.size - 4} + lift clubs <i class='fa fa-angle-right'></i>".html_safe if (trips.size - 4) > 0 %></h3>

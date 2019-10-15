@@ -31,6 +31,12 @@
           <a class="link-item" href="#">Instant Bookings</a>
           <a class="link-item" href="/trips/new">Create a ride</a>
         </div>
+        <div id="hosting-links" class="links-list">
+          <h5 class="links-header">Browse rides by events</h5>
+          <% Event.limit(5).each do |event| %>
+            <%= link_to truncate(event.name, length: 48), event_path(event.slug), :class=>"link-item" %>
+          <% end %>
+        </div>
       </section>
       <section class="dropdown-section">
         
