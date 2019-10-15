@@ -62,7 +62,7 @@ class User < ApplicationRecord
                          confirmed_at: Time.zone.now
                         )
       if user.save(validate: false)
-        user.profile_image.attach(io: open(data['image']), filename: "#{user.id}.png")
+        user.profile_image.attach(io: open(data['image']), filename: "#{user.first_name}-#{user.id}.png")
       end
     end
     user.confirm
