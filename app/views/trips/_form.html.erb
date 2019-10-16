@@ -22,9 +22,10 @@
         <%= f.association :vehicle, :collection => Vehicle.all, :label_method => :make, :value_method => :id %>
         <%
 =begin%>
- <%= f.input :description, :hint => "List all the suburbs you are willing to collect and drop riders from. Describe the kind of riders you are looking for i.e non-smokers, ladies only" %> 
+ <%= f.input :description, :hint => "List all the suburbs you are willing to collect and drop riders from. Describe the kind of riders you are looking for i.e non-smokers, ladies only" %>  
 <%
 =end%>
+
         <div class="form-actions">
             <%= f.button :submit, :class=>"btn-primary" %>
         </div>

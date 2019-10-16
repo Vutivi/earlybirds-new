@@ -14,6 +14,7 @@ class TripsController < ApplicationController
   def show
     track_action("View", @trip)
     @messages = @trip.messages
+    @riders   = @trip.riders
   end
 
   # GET /trips/new
@@ -75,6 +76,7 @@ class TripsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def trip_params
-      params.require(:trip).permit(:kind, :start_location, :end_location, :seats, :price, :vehicle_id, :plan_id, :event_id, :approved, :departure_times, :return_times, :round_trip, :description)
+      params.require(:trip).permit(:kind, :start_location, :end_location, :seats, :price, :vehicle_id, :plan_id, :event_id, :approved, :departure_times, :return_times, :round_trip)
+      # params.require(:trip).permit(:kind, :start_location, :end_location, :seats, :price, :vehicle_id, :plan_id, :event_id, :approved, :departure_times, :return_times, :round_trip, :description)
     end
 end

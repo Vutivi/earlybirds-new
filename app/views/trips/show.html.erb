@@ -78,21 +78,9 @@
               <span>Email: <span>verified</span> <i class="fa fa-check"></i> </span>
               <span>Phone:  <span>verified</span> <i class="fa fa-close"></i> </span>
           </div>
-          <%
-=begin%>
- <div class="detail rating">
-              <span>Rating: <span><i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i></span></span>
-          </div>  
-<%
-=end%>
-
-          <%
-=begin%>
- <div class="detail trips">
+          <div class="detail trips">
               <span>trips: <span><%= pluralize(@trip.user.trips.count, 'trip') %></span> </span>
           </div> 
-<%
-=end%>
           <div class="detail Member ">
               <span><span>Member since <%= @trip.user.created_at.strftime("%B, %Y") %></span> </span>
           </div>
@@ -113,5 +101,11 @@
         </div>
       <% end %>
   </div>
+  <% if rider_id(current_user, @trip).present? || current_user_is_owner?(@trip) %>
+    <section class="better-space"></section>
+    <h2>Trip riders</h2>
+    <section class="better-space"></section>
+    <%= render @riders %>
+  <% end %>
 </div>
      
