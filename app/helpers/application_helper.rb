@@ -24,4 +24,16 @@ module ApplicationHelper
         user_trips = current_user.trips.pluck(:id)
         Trip.where(id: user_trips).paginate(page: params[:page], per_page: 8)
     end
+
+    def resource_name
+        :user
+    end
+    
+    def resource
+        User.new
+    end
+
+    def devise_mapping
+        Devise.mappings[:user]
+    end
 end

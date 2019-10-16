@@ -2,8 +2,26 @@
 <h2>Cross province home lift clubs</h2>
 <div data-slick='{"slidesToShow": 4, "slidesToScroll": 4}' class="scroller responsive data">
     <% @cross_province_trips.each do |trip| %>
+        <%
+=begin%>
+ <div class="box-placeholder box-placeholder-long">
+            <div class="p-5">
+                <span class="category text link"></span>
+                <h4 class="text line"></h4>
+                <h4 class="text"></h4>
+            </div>
+            <hr>
+            <div class="excerpt p-4">
+                <div class="text line"></div>
+                <div class="text line"></div>
+                <div class="text"></div>
+            </div>
+            <hr>
+        </div> 
+<%
+=end%>
         <!-- Card example 06 -->
-        <div class="card card__dark card__dark--magenta">
+        <div class="card card__dark card__dark--magenta long-trip">
             <div class="media media--16-9"> <%= image_tag trip.vehicle.thumbnail, :alt=>"" %></div>
             <div class="primary-title">
                 <div class="primary-text float-right">

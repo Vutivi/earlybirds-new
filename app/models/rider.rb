@@ -12,7 +12,7 @@ class Rider < ApplicationRecord
   private
 
   def one_work_trip_per_rider
-    if trip.kind.eql?(1) && Rider.joined_work_trip_for_rider(user_id).present?
+    if trip.kind.eql?('daily_work') && Rider.joined_work_trip_for_rider(user_id).present?
       errors.add(:base, 'You already belong to another work trip, Please leave that trip first.')
     end
   end

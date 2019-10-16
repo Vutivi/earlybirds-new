@@ -12,26 +12,29 @@ $(document).on('turbolinks:load', function() {
     $("select").select2();
   });
 
-
+  // Lazy load cards
   $(() => {
 
-    const box = $('.box'),
-          ph = $('.box-placeholder');
+    const dailyBox = $('.daily-trip'),
+          dailyPlaceHolder = $('.box-placeholder-daily');
+          // longBox = $('.long-trip'),
+          // longPlaceHolder = $('.box-placeholder-long');
           
     let toggleEffect = () => {
-      box.hide();
-      ph.show();
+      dailyBox.hide();
+      dailyPlaceHolder.show();
+      // longBox.hide();
+      // longPlaceHolder.show();
       
       setTimeout(() => {
-        ph.hide();
-        box.show();
-      }, 2e3);
+        dailyPlaceHolder.hide();
+        dailyBox.show();
+        // longPlaceHolder.hide();
+        // longBox.show();
+      }, 3000);
     };
   
-    toggleEffect();
-    
-    setInterval(toggleEffect, 4e3);
-  
+    toggleEffect();  
   });
     
   $('.responsive').slick({

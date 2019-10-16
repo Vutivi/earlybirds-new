@@ -4,6 +4,7 @@ class CreateTrips < ActiveRecord::Migration[5.2]
       t.integer :kind, default: 0
       t.string :start_location
       t.string :end_location
+      t.text :description
       t.integer :seats
       t.integer :price
       t.references :vehicle, foreign_key: true

@@ -1,5 +1,4 @@
-<h2>Change your password</h2>
-
+<%= render 'devise/shared/header', action: 'Change password' %>
 <%= simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
   <%= f.error_notification %>
 
@@ -12,8 +11,9 @@
   </div>
 
   <div class="form-actions">
-    <%= f.button :submit, "Change my password" %>
+    <%= f.button :submit, "Change my password", :class=>"btn-primary" %>
   </div>
 <% end %>
 
 <%= render "devise/shared/links" %>
+<%= render "devise/shared/footer" %>

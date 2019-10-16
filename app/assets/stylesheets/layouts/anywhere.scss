@@ -272,3 +272,13 @@ $size: 20px;
   padding: 1px 10px;
 }
 
+.btn-info {
+color: #fff;
+background-color: $primary-color !important;
+border-color: $primary-color !important;
+}
+
+.btn-primary {
+  background-color: $brand !important;
+  border-color: $brand !important;
+}

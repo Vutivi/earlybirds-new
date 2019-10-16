@@ -16,7 +16,12 @@ Rails.application.routes.draw do
 
   devise_for :users, controllers: {
     omniauth_callbacks: 'users/omniauth_callbacks'
+    # sessions: 'users/sessions',
+    # passwords: 'users/passwords',
+    # registrations: 'users/registrations',
+    # confirmations: 'users/confirmations'
   }
+
   root to: 'pages#home'
 
   # namespace :api, defaults: { format: :json } do

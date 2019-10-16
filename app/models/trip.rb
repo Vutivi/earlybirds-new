@@ -3,8 +3,9 @@ class Trip < ApplicationRecord
   friendly_id :slugger, use: :slugged
   visitable :ahoy_visit
   
-  validates :kind, :start_location, :end_location, :seats, :price, :departure_times, presence: true
+  validates :kind, :start_location, :end_location, :seats, :price, :departure_times, :description, presence: true
   validates :price, length: {minimum: 1, maximum: 4}
+  validates :description, length: {minimum: 10, maximum: 350}
   validates_uniqueness_of :kind, scope: %i[vehicle_id start_location departure_times]
   validate :one_work_trip_per_driver
 
@@ -22,6 +23,7 @@ class Trip < ApplicationRecord
   ]
 
   scope :work_trips_for_user, -> (user_id) { where('kind = ? AND user_id = ?', 1, user_id) }
+  scope :events_trips, -> { where.not(event_id: nil) }
 
   def slugger
     "#{start_location} to #{end_location}"
@@ -43,7 +45,7 @@ class Trip < ApplicationRecord
   private
 
   def one_work_trip_per_driver
-    if kind.eql?(1) && Trip.work_trips_for_user(user_id).present?
+    if kind.eql?('daily_work') && Trip.work_trips_for_user(user_id).present?
       errors.add(:base, 'You can only add one work trip.')
     end
   end

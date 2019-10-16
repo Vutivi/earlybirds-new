@@ -1,8 +1,25 @@
 <h2><%= header %></h2>
 <div class="row">
   <% trips.first(4).each do |trip| %>
-    <div class="col-md-3 col-sm-12">
+    <div class="col-md-3 col-sm-12 box-placeholder box-placeholder-daily">
+      <div class="p-4">
+        <span class="category text link"></span>
+        <h4 class="text line"></h4>
+        <h4 class="text"></h4>
+      </div>
+      <hr>
+      <div class="image">
+        <div class="embed-responsive embed-responsive-16by9"></div>
+      </div>
+      <hr>
+      <div class="excerpt p-4">
+        <div class="text line"></div>
+        <div class="text line"></div>
+        <div class="text"></div>
+      </div>
+    </div>
 
+    <div class="col-md-3 col-sm-12 daily-trip">
       <div class="card card__dark card__dark--magenta custom">
         <div class="media media--16-9"> <img src="<%= url_for(trip.vehicle.thumbnail) %>"> </div>
             <div class="primary-title">
@@ -17,7 +34,7 @@
                 <p class="text-center"><%= trip.short_end_location %></p> 
               </div>
             </div>
-            <div class="d-inline p-2 text-center" style="margin-top:10px;">Departs at <%= trip.departure_times.strftime('%H:%m %p') %> daily</div>
+            <div class="d-inline p-2 text-center" style="margin-top:10px;">Departs at <%= trip.departure_times.strftime('%H:%m %p') %> <%= 'daily' if trip.kind.eql?('daily_work')%></div>
             <div class="d-inline p-2 bg-secondary text-white text-center">
                 <div class="action-icons icon-color--yellow"><span><i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i>
              </div>

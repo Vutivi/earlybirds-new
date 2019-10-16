@@ -45,11 +45,8 @@
   </div>
 </section>
 
-<%
-=begin%>
- <section class="better-space"></section>
-<%= render 'shared/daily_cards', header: 'Trips for this event', trips: @event_trips %>
+
 <section class="better-space"></section>
-<%= render 'shared/daily_cards', header: 'Trips for other events', trips: @related_trips %> 
-<%
-=end%>
+<%= render 'shared/daily_cards', header: "Trips for #{@category.name} event category", trips: trips_for_category(@category.id) %>
+<section class="better-space"></section>
+<%= render 'shared/daily_cards', header: "Trips for other events categories", trips: trips_for_other_events(@category.id) %> 
