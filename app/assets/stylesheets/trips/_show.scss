@@ -130,10 +130,11 @@
 }
 
 .chat{
-    padding: 0;
     border: 1px solid #ddd;
     border-radius: 10px;
     margin-bottom: 20px;
+    margin: 0;
+    // padding: 1px 0
 }
 .chat h3{
     margin: 0;

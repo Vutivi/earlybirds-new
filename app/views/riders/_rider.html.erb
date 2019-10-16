@@ -1,0 +1,23 @@
+<div class="driver-details col-md-4">
+    <h3>Rider details<i class="fa fa-info-circle"></i></h3>
+    <div class="details">
+        <div class="driver-photo">
+            <%= image_tag set_user_profile_image(rider.user) %>
+        </div>
+        <div class="detail">
+            <span>Name: <span><%= rider.user.full_name %></span> </span>
+            <span>Age: <span>35</span> </span>
+            <span>Gender: <span><%= rider.user.gender  %></span> </span>
+            <span>ID: <span>verified</span> <i class="fa fa-close"></i> </span>
+            <span>Email: <span>verified</span> <i class="fa fa-check"></i> </span>
+            <span>Phone:  <span>verified</span> <i class="fa fa-close"></i> </span>
+        </div>
+
+        <div class="detail trips">
+            <span>trips: <span><%= pluralize(rider.user.trips.count, 'trip') %></span> </span>
+        </div> 
+        <div class="detail Member ">
+            <span><span>Member since <%= rider.user.created_at.strftime("%B, %Y") %></span> </span>
+        </div>
+    </div>
+</div>

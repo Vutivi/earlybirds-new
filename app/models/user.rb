@@ -15,6 +15,8 @@ class User < ApplicationRecord
   has_many :messages, dependent: :destroy
   has_many :vehicles, dependent: :destroy
   has_many :report, dependent: :destroy
+  has_many :riders, dependent: :destroy
+  
   has_one_attached :profile_image
 
   enum gender: [
