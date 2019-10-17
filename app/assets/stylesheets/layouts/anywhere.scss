@@ -282,3 +282,11 @@ border-color: $primary-color !important;
   background-color: $brand !important;
   border-color: $brand !important;
 }
+
+
+.select2-container--default .select2-results__option--highlighted[aria-selected] {
+  background-color: $brand !important;
+  color: white;
+  border:1px solid $secondary-color !important;
+}
+
