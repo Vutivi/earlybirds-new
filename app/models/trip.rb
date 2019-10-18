@@ -1,5 +1,13 @@
 class Trip < ApplicationRecord
   extend FriendlyId
+  include AlgoliaSearch
+
+  algoliasearch do
+    attributes :start_location, :end_location, :price, :kind, :event, :slug, :vehicle
+
+    searchableAttributes ['unordered(start_location)', 'unordered(end_location)', 'unordered(vehicle)', 'kind']
+  end
+
   friendly_id :slugger, use: :slugged
   visitable :ahoy_visit
   

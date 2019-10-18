@@ -18,6 +18,7 @@ gem 'toastr-rails'
 gem 'social-share-button'
 gem 'ahoy_matey'
 gem 'image_processing'
+gem 'algoliasearch-rails'
 
 # authentication
 gem 'devise'

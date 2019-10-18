@@ -1,5 +1,12 @@
 class Category < ApplicationRecord
     include Resizable
+    include AlgoliaSearch
+
+    algoliasearch do
+      attributes :name, :description, :slug
+      searchableAttributes ['name', 'unordered(description)']
+
+    end
 
     extend FriendlyId
     friendly_id :slugger, use: :slugged

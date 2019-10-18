@@ -1,5 +1,12 @@
 class Event < ApplicationRecord
     include Resizable
+    include AlgoliaSearch
+
+    algoliasearch do
+      attributes :name, :address, :slug, :description
+
+      searchableAttributes ['name', 'address', 'unordered(description)']
+    end
 
     extend FriendlyId
     friendly_id :slugger, use: :slugged

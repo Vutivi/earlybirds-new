@@ -13,7 +13,7 @@ class TripPolicy < ApplicationPolicy
     end
 
     def edit?
-        user.admin? || is_owner?
+        user.admin? || (record.user == user)
     end
     
     def update?
