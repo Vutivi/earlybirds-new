@@ -5,7 +5,8 @@ class Trip < ApplicationRecord
   algoliasearch do
     attributes :start_location, :end_location, :price, :kind, :event, :slug, :vehicle
 
-    searchableAttributes ['unordered(start_location)', 'unordered(end_location)', 'unordered(vehicle)', 'kind']
+    searchableAttributes ['start_location', 'end_location', 'vehicle', 'kind']
+    attributesForFaceting ['start_location', 'end_location', 'vehicle', 'kind']
   end
 
   friendly_id :slugger, use: :slugged
