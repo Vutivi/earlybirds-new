@@ -3,26 +3,30 @@ class VehiclesController < ApplicationController
 
   before_action :set_vehicle, only: [:show, :edit, :update, :destroy]
   after_action  :attach_image, only: [:create, :update]
+  after_action  :update_role, only: [:create, :update]
   # before_action :require_vehicle_images, only: %i[update create]
 
   # GET /vehicles
   # GET /vehicles.json
   def index
-    @vehicles = Vehicle.where(user: current_user)
+    @vehicles = policy_scope(Vehicle).where(user: current_user)
   end
 
   # GET /vehicles/1
   # GET /vehicles/1.json
   def show
+    authorize @vehicle
   end
 
   # GET /vehicles/new
   def new
     @vehicle = Vehicle.new
+    authorize @vehicle
   end
 
   # GET /vehicles/1/edit
   def edit
+    authorize @vehicle
   end
 
   # POST /vehicles
@@ -30,6 +34,7 @@ class VehiclesController < ApplicationController
   def create
     @vehicle      = Vehicle.new(vehicle_params)
     @vehicle.user = current_user
+    authorize @vehicle
       
     respond_to do |format|
       if @vehicle.save
@@ -45,6 +50,7 @@ class VehiclesController < ApplicationController
   # PATCH/PUT /vehicles/1
   # PATCH/PUT /vehicles/1.json
   def update
+    authorize @vehicle
     respond_to do |format|
       if @vehicle.update(vehicle_params)
         format.html { redirect_to @vehicle, notice: 'Vehicle was successfully updated.' }
@@ -69,7 +75,7 @@ class VehiclesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_vehicle
-      @vehicle = Vehicle.find(params[:id])
+      @vehicle = policy_scope(Vehicle).find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
@@ -81,5 +87,9 @@ class VehiclesController < ApplicationController
       return unless params[:vehicle][:image].present?
       image = open(tinify(params[:vehicle][:image].tempfile))
       @vehicle.image.attach(io: image, filename: "#{@vehicle.make}-#{@vehicle.id}.png")
+    end
+
+    def update_role
+      current_user.update!(role: "driver", cellphone: '0000000000') unless current_user.driver?
     end
 end

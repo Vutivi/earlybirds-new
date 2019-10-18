@@ -1,8 +1,10 @@
 class ApplicationController < ActionController::Base
+  include Pundit
   protect_from_forgery with: :exception
   before_action :authenticate_user!
   skip_before_action :verify_authenticity_token
   before_action :configure_permitted_parameters, if: :devise_controller?
+  rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
 
   protected
 
@@ -15,5 +17,12 @@ class ApplicationController < ActionController::Base
       unless current_user.eql?(visitable.user)
         ahoy.track action, visitable_id: visitable.id, visitable_type: visitable.class.name
       end
+    end
+
+  private
+  
+    def user_not_authorized
+      flash[:alert] = "You are not authorized to perform this action."
+      redirect_to(request.referrer || root_path)
     end
 end

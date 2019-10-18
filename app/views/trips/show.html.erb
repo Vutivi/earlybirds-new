@@ -22,7 +22,7 @@
           </li>
           <li class="list-group-item d-flex justify-content-between align-items-center">
             Seats available:
-            <span class="badge badge-secondary badge-pill"><%= @trip.seats %></span>
+            <span class="badge badge-secondary badge-pill"><%= @trip.seats - @trip.riders.size %></span>
           </li>
           <li class="list-group-item d-flex justify-content-between align-items-center">
             Call driver:
@@ -37,7 +37,7 @@
         
       <div>
           <span> <i class="fa fa-user"></i> 0 Partners <%= " and #{pluralize(visits_count(@trip), 'view')}" if current_user_is_owner?(@trip) %> </span>
-          <% unless current_user_is_owner?(@trip) %>
+          <% unless current_user_is_owner?(@trip) || is_full?(@trip) %>
             <button class="join-trip" data-trip-id="<%= @trip.id %>" data-user-id="<%= current_user&.id %>" data-action-type="<%= set_rider_state(@trip) %>" data-rider-id="<%= rider_id(current_user, @trip) %>" ><%= set_rider_state(@trip) %> trip</button>
           <% else %>
             <span class="fa fa-eye"> <%= link_to "View #{@trip.leads.size} leads for this trip", leads_for_trip_path(@trip.id), :method => :get %></span>

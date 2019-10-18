@@ -4,9 +4,9 @@ class TripsController < ApplicationController
   # GET /trips
   # GET /trips.json
   def index
-    @daily_work_trips     = Trip.where(kind: 'daily_work')
-    @social_trips         = Trip.where(kind: 'social_events')
-    @cross_province_trips = Trip.where(kind: 'cross_province_home')
+    @daily_work_trips     = policy_scope(Trip).where(kind: 'daily_work')
+    @social_trips         = policy_scope(Trip).where(kind: 'social_events')
+    @cross_province_trips = policy_scope(Trip).where(kind: 'cross_province_home')
   end
 
   # GET /trips/1
@@ -21,10 +21,12 @@ class TripsController < ApplicationController
   def new
     redirect_to new_vehicle_path, notice: I18n.t('trips.new.no_vehicle') unless current_user.vehicles.any?
     @trip = Trip.new
+    authorize @trip
   end
 
   # GET /trips/1/edit
   def edit
+    authorize @trip
   end
 
   # POST /trips
@@ -32,7 +34,7 @@ class TripsController < ApplicationController
   def create
     @trip      = Trip.new(trip_params)
     @trip.user = current_user
-
+    authorize @trip
     respond_to do |format|
       if @trip.save
         format.html { redirect_to @trip, notice: 'Trip was successfully created.' }
@@ -47,6 +49,7 @@ class TripsController < ApplicationController
   # PATCH/PUT /trips/1
   # PATCH/PUT /trips/1.json
   def update
+    authorize @trip
     respond_to do |format|
       if @trip.update(trip_params)
         format.html { redirect_to @trip, notice: 'Trip was successfully updated.' }
@@ -61,6 +64,7 @@ class TripsController < ApplicationController
   # DELETE /trips/1
   # DELETE /trips/1.json
   def destroy
+    authorize @trip
     @trip.destroy
     respond_to do |format|
       format.html { redirect_to trips_url, notice: 'Trip was successfully destroyed.' }
@@ -71,7 +75,7 @@ class TripsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_trip
-      @trip = Trip.friendly.find(params[:id])
+      @trip = policy_scope(Trip.friendly).find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

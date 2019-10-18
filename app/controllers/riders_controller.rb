@@ -4,27 +4,31 @@ class RidersController < ApplicationController
   # GET /riders
   # GET /riders.json
   def index
-    @riders = Rider.all
+    @riders = policy_scope(Rider).all
   end
 
   # GET /riders/1
   # GET /riders/1.json
   def show
+    authorize @rider
   end
 
   # GET /riders/new
   def new
     @rider = Rider.new
+    authorize @rider
   end
 
   # GET /riders/1/edit
   def edit
+    authorize @rider
   end
 
   # POST /riders
   # POST /riders.json
   def create
     @rider      = Rider.new(rider_params)
+    authorize @rider
 
     respond_to do |format|
       if @rider.save
@@ -40,6 +44,7 @@ class RidersController < ApplicationController
   # PATCH/PUT /riders/1
   # PATCH/PUT /riders/1.json
   def update
+    authorize @rider
     respond_to do |format|
       if @rider.update(rider_params)
         format.html { redirect_to @rider, notice: 'Rider was successfully updated.' }
@@ -54,6 +59,7 @@ class RidersController < ApplicationController
   # DELETE /riders/1
   # DELETE /riders/1.json
   def destroy
+    authorize @rider
     @rider.destroy
     respond_to do |format|
       format.html { redirect_to riders_url, notice: I18n.t('rider.destroy.success') }
@@ -64,7 +70,7 @@ class RidersController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_rider
-      @rider = Rider.find(params[:id])
+      @rider = policy_scope(Rider).find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

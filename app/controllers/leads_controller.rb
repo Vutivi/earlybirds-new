@@ -4,27 +4,31 @@ class LeadsController < ApplicationController
   # GET /leads
   # GET /leads.json
   def index
-    @leads = Lead.all
+    @leads = scope(Lead).all
   end
 
   # GET /leads/1
   # GET /leads/1.json
   def show
+    authorize @lead
   end
 
   # GET /leads/new
   def new
     @lead = Lead.new
+    authorize @lead
   end
 
   # GET /leads/1/edit
   def edit
+    authorize @lead
   end
 
   # POST /leads
   # POST /leads.json
   def create
     @lead = Lead.new(lead_params)
+    authorize @lead
 
     respond_to do |format|
       if @lead.save
@@ -38,9 +42,9 @@ class LeadsController < ApplicationController
   end
 
   def for_single_trip
-    @trip  = Trip.find(params[:trip_id])
+    @trip  = policy_scope(Trip).find(params[:trip_id])
     @leads  = @trip.leads.paginate(page: params[:page], per_page: 10)
-
+    authorize @leads
     # respond_to do |format|
     #   format.json { render json: leads }
     # end
@@ -49,6 +53,7 @@ class LeadsController < ApplicationController
   # PATCH/PUT /leads/1
   # PATCH/PUT /leads/1.json
   def update
+    authorize @lead
     respond_to do |format|
       if @lead.update(lead_params)
         format.html { redirect_to @lead, notice: 'Lead was successfully updated.' }
@@ -63,6 +68,7 @@ class LeadsController < ApplicationController
   # DELETE /leads/1
   # DELETE /leads/1.json
   def destroy
+    authorize @lead
     @lead.destroy
     respond_to do |format|
       format.html { redirect_to leads_url, notice: 'Lead was successfully destroyed.' }
@@ -73,7 +79,7 @@ class LeadsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_lead
-      @lead = Lead.find(params[:id])
+      @lead = policy_scope(Lead).find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

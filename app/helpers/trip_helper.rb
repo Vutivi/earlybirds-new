@@ -16,4 +16,8 @@ module TripHelper
     def rider_id user, trip
         Rider.find_by(user: current_user, trip: trip)&.id
     end
+
+    def is_full? trip
+        trip.riders.size >= trip.seats
+    end
 end

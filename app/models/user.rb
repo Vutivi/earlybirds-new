@@ -36,6 +36,14 @@ class User < ApplicationRecord
     "#{first_name} #{last_name}"
   end
 
+  def admin?
+    role.eql?('admin')
+  end
+
+  def driver?
+    role.eql?('driver')
+  end
+
   protected
   # I disable this method because I don't use the confirmable Devise module
   def confirmation_required?

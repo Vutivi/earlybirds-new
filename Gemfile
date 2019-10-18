@@ -26,6 +26,9 @@ gem 'omniauth-facebook'
 gem 'omniauth-twitter'
 gem 'omniauth-google-oauth2'
 
+# Authorization
+gem "pundit"
+
 # image uploads
 # gem 'aws-sdk-s3', require: false
 gem 'aws-sdk', require: false
