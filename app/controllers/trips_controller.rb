@@ -4,9 +4,17 @@ class TripsController < ApplicationController
   # GET /trips
   # GET /trips.json
   def index
-    @daily_work_trips     = policy_scope(Trip).where(kind: 'daily_work')
-    @social_trips         = policy_scope(Trip).where(kind: 'social_events')
-    @cross_province_trips = policy_scope(Trip).where(kind: 'cross_province_home')
+    set_index_results
+    # if params[:id].present?
+    #   @trips = Trip.where('id < ? AND kind = ?', params[:id], kind).limit(8)
+    # else
+      # @trips = Trip.all
+    # end
+
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   # GET /trips/1
@@ -82,5 +90,30 @@ class TripsController < ApplicationController
     def trip_params
       params.require(:trip).permit(:kind, :start_location, :end_location, :seats, :price, :vehicle_id, :plan_id, :event_id, :approved, :departure_times, :return_times, :round_trip)
       # params.require(:trip).permit(:kind, :start_location, :end_location, :seats, :price, :vehicle_id, :plan_id, :event_id, :approved, :departure_times, :return_times, :round_trip, :description)
+    end
+
+    def set_index_results
+      if params[:id].present?
+        set_based_on_kind(params[:kind])
+      elsif params[:keyword].present?
+        trips                 = policy_scope(Trip).search(params[:keyword].split('-').join(' '))
+        @daily_trips                = trips.select {|trip| trip.kind=='daily_work'}
+        @social_trips         = trips.select {|trip| trip.kind=='social_events'}
+        @cross_province_trips = trips.select {|trip| trip.kind=='cross_province_home'}
+      else
+        @daily_trips                = policy_scope(Trip).where(kind: 'daily_work')
+        @social_trips         = policy_scope(Trip).where(kind: 'social_events')
+        @cross_province_trips = policy_scope(Trip).where(kind: 'cross_province_home')
+      end
+    end
+
+    def set_based_on_kind kind
+      if kind.eql?('daily_work')
+        @trips = Trip.where('id < ? AND kind = ?', params[:id], kind).limit(8)
+      elsif kind.eql?('social_events')
+        @trips = Trip.where('id < ? AND kind = ?', params[:id], kind).limit(8)
+      elsif kind.eql?('cross_province_home')
+        @trips  = Trip.where('id < ? AND kind = ?', params[:id], kind).limit(8)
+      end
     end
 end

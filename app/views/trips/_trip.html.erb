@@ -1,7 +1,6 @@
-<h2><%= header %></h2>
-<div class="row">
-  <% trips.first(4).each do |trip| %>
-    <div class="col-md-3 col-sm-12 box-placeholder box-placeholder-daily">
+<%
+=begin%>
+ <div class="col-md-3 col-sm-12 box-placeholder box-placeholder-daily" data-id="<%= trip.id %>" data-kind="<%= trip.kind %>">
       <div class="p-4">
         <span class="category text link"></span>
         <h4 class="text line"></h4>
@@ -17,9 +16,11 @@
         <div class="text line"></div>
         <div class="text"></div>
       </div>
-    </div>
+    </div> 
+<%
+=end%>
 
-    <div class="col-md-3 col-sm-12 daily-trip">
+    <div class="col-md-3 col-sm-12 daily-trip record">
       <div class="card card__dark card__dark--magenta custom">
         <div class="media media--16-9"> <img src="<%= url_for(trip.vehicle.thumbnail) %>"> </div>
             <div class="primary-title">
@@ -52,26 +53,3 @@
           </div>
         </div> 
     </div> 
-  <% end %>
-</div>
-<h3 class="view-more"><%= "Show all #{trips.size - 4} + lift clubs <i class='fa fa-angle-right'></i>".html_safe if (trips.size - 4) > 0 %></h3>
-
-<%
-=begin%>
- <h2><%= header %><%= search_results_count @trips %></h2>
-<div class="row trips-container">
-    <%= render @trips %>
-</div>
-<div class="load-more-container">
-        <!-- hide our loading gif image so that we show it when making ajax call via jquery -->
-	<%= image_tag "ajax-loader.gif", style: "display:none;", class: "loading-gif" %>
-	<%= link_to "Load More", trips_path, class: "load-more" %>
-</div> 
-<%
-=end%>
-<%
-=begin%>
- <h3 class="view-more"><%= "Show all #{trips.size - 4} + lift clubs <i class='fa fa-angle-right'></i>".html_safe if (trips.size - 4) > 0 %></h3> 
-<%
-=end%>
-

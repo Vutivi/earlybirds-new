@@ -1,5 +1,14 @@
 class Trip < ApplicationRecord
   extend FriendlyId
+  include AlgoliaSearch
+
+  algoliasearch per_environment: true, disable_indexing: Rails.env.test? do
+    attributes :start_location, :end_location, :price, :kind, :event, :slug, :vehicle
+
+    searchableAttributes ['start_location', 'end_location', 'vehicle', 'kind']
+    attributesForFaceting ['start_location', 'end_location', 'vehicle', 'kind']
+  end
+
   friendly_id :slugger, use: :slugged
   visitable :ahoy_visit
   
@@ -23,6 +32,7 @@ class Trip < ApplicationRecord
     :cross_province_home
   ]
 
+  default_scope { order('created_at DESC') }
   scope :work_trips_for_user, -> (user_id) { where('kind = ? AND user_id = ?', 1, user_id) }
   scope :events_trips, -> { where.not(event_id: nil) }
 
