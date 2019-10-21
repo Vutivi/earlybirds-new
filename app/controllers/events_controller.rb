@@ -2,6 +2,8 @@ class EventsController < ApplicationController
   include TinifyImage
   before_action :set_event, only: [:show, :edit, :update, :destroy]
   after_action :attach_image, only: [:create, :update]
+  skip_before_action :authenticate_user!, except: [:new, :create, :edit, :update, :destroy]
+
   # GET /events
   # GET /events.json
   def index
