@@ -54,9 +54,27 @@
     <div class="dropdown">
       <i class="fa fa-bars dropdown-toggle" data-toggle="dropdown"></i>
       <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
-        <li><a href="#">Some mobile link</a></li>
-        <li><a href="#">Other one</a></li>
-        <li><a href="#">Other one</a></li>
+        <% if user_signed_in? %>
+          <%= link_to "Create ride", new_trip_path %>
+          <%= link_to "Your rides", profile_path %>
+          <%= link_to "Your messages", messages_path %>
+          <%= link_to "Your vehicles", vehicles_path %>
+          <li>
+            <%= link_to profile_path do %>
+              <i class="fa fa-user"></i> <%= t(".profile", default: "Profile") %>
+            <% end %>
+          </li>
+          <li>
+            <%= link_to settings_path do %>
+              <i class="fa fa-cog"></i>  <%= t(".settings", default: "Account details") %>
+            <% end %>
+          </li>
+        <% else %>
+          <%= link_to "Create a ride", new_trip_path %>
+
+          <!-- Login link (when logged out) -->
+          <%= link_to t(".sign_in", default: "Login"), new_user_session_path %>
+        <% end %>
       </ul>
     </div>
   </div>
