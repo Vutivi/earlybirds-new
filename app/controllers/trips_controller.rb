@@ -97,13 +97,13 @@ class TripsController < ApplicationController
       #   set_based_on_kind(params[:kind])
       if params[:keyword].present?
         trips                 = policy_scope(Trip).search(params[:keyword].split('-').join(' '))
-        @daily_work_trips     = trips.select {|trip| trip.kind=='daily_work'}.order(:created_at).paginate(:page => params[:page], :per_page => 4)
-        @social_trips         = trips.select {|trip| trip.kind=='social_events'}.order(:created_at).paginate(:page => params[:page], :per_page => 4)
-        @cross_province_trips = trips.select {|trip| trip.kind=='cross_province_home'}.order(:created_at).paginate(:page => params[:page], :per_page => 4)
+        @daily_work_trips     = trips.select {|trip| trip.kind=='daily_work'}.paginate(:page => params[:page], :per_page => 4)
+        @social_trips         = trips.select {|trip| trip.kind=='social_events'}.paginate(:page => params[:page], :per_page => 4)
+        @cross_province_trips = trips.select {|trip| trip.kind=='cross_province_home'}.paginate(:page => params[:page], :per_page => 4)
       else
-        @daily_work_trips     = policy_scope(Trip).where(kind: 'daily_work').order(:created_at).paginate(:page => params[:page], :per_page => 4)
-        @social_trips         = policy_scope(Trip).where(kind: 'social_events').order(:created_at).paginate(:page => params[:page], :per_page => 4)
-        @cross_province_trips = policy_scope(Trip).where(kind: 'cross_province_home').order(:created_at).paginate(:page => params[:page], :per_page => 4)
+        @daily_work_trips     = policy_scope(Trip).where(kind: 'daily_work').paginate(:page => params[:page], :per_page => 4)
+        @social_trips         = policy_scope(Trip).where(kind: 'social_events').paginate(:page => params[:page], :per_page => 4)
+        @cross_province_trips = policy_scope(Trip).where(kind: 'cross_province_home').paginate(:page => params[:page], :per_page => 4)
       end
     end
 
