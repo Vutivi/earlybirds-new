@@ -93,9 +93,9 @@ class TripsController < ApplicationController
     end
 
     def set_index_results
-      if params[:id].present?
-        set_based_on_kind(params[:kind])
-      elsif params[:keyword].present?
+      # if params[:id].present?
+      #   set_based_on_kind(params[:kind])
+      if params[:keyword].present?
         trips                 = policy_scope(Trip).search(params[:keyword].split('-').join(' '))
         @daily_work_trips     = trips.select {|trip| trip.kind=='daily_work'}.order(:created_at).paginate(:page => params[:page], :per_page => 4)
         @social_trips         = trips.select {|trip| trip.kind=='social_events'}.order(:created_at).paginate(:page => params[:page], :per_page => 4)
