@@ -4,6 +4,7 @@
 //= require toastr
 //= require social-share-button
 //= require algolia/v3/algoliasearch.min
+//= require will_paginate_infinite
 //= require rails-ujs
 //= require turbolinks
 //= require_tree .
