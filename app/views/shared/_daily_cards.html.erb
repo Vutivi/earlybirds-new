@@ -53,7 +53,12 @@
         </div> 
     </div> 
   <% end %>
-    <%= will_paginate trips, renderer: WillPaginateInfinite::InfinitePagination %>
+</div>
+<div class="apple_pagination">
+    <div class="page_info">
+      <%= page_entries_info trips %>
+    </div>
+    <%= will_paginate trips, :container => false %>
 </div>
 <%
 =begin%>
