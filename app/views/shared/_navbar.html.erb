@@ -70,10 +70,10 @@
             <% end %>
           </li>
         <% else %>
-          <%= link_to "Create a ride", new_trip_path %>
+          <li><%= link_to "Create a ride", new_trip_path %></li>
 
           <!-- Login link (when logged out) -->
-          <%= link_to t(".sign_in", default: "Login"), new_user_session_path %>
+          <li><%= link_to t(".sign_in", default: "Login"), new_user_session_path %></li>
         <% end %>
       </ul>
     </div>
