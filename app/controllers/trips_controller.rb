@@ -97,23 +97,23 @@ class TripsController < ApplicationController
         set_based_on_kind(params[:kind])
       elsif params[:keyword].present?
         trips                 = policy_scope(Trip).search(params[:keyword].split('-').join(' '))
-        @daily_trips                = trips.select {|trip| trip.kind=='daily_work'}
-        @social_trips         = trips.select {|trip| trip.kind=='social_events'}
-        @cross_province_trips = trips.select {|trip| trip.kind=='cross_province_home'}
+        @daily_work_trips     = trips.select {|trip| trip.kind=='daily_work'}.order(:created_at).paginate(:page => params[:page], :per_page => 4)
+        @social_trips         = trips.select {|trip| trip.kind=='social_events'}.order(:created_at).paginate(:page => params[:page], :per_page => 4)
+        @cross_province_trips = trips.select {|trip| trip.kind=='cross_province_home'}.order(:created_at).paginate(:page => params[:page], :per_page => 4)
       else
-        @daily_trips                = policy_scope(Trip).where(kind: 'daily_work')
-        @social_trips         = policy_scope(Trip).where(kind: 'social_events')
-        @cross_province_trips = policy_scope(Trip).where(kind: 'cross_province_home')
+        @daily_work_trips     = policy_scope(Trip).where(kind: 'daily_work').order(:created_at).paginate(:page => params[:page], :per_page => 4)
+        @social_trips         = policy_scope(Trip).where(kind: 'social_events').order(:created_at).paginate(:page => params[:page], :per_page => 4)
+        @cross_province_trips = policy_scope(Trip).where(kind: 'cross_province_home').order(:created_at).paginate(:page => params[:page], :per_page => 4)
       end
     end
 
     def set_based_on_kind kind
       if kind.eql?('daily_work')
-        @trips = Trip.where('id < ? AND kind = ?', params[:id], kind).limit(8)
+        @trips = Trip.where('id < ? AND kind = ?', params[:id], kind).order(:created_at).paginate(:page => params[:page], :per_page => 4)
       elsif kind.eql?('social_events')
-        @trips = Trip.where('id < ? AND kind = ?', params[:id], kind).limit(8)
+        @trips = Trip.where('id < ? AND kind = ?', params[:id], kind).order(:created_at).paginate(:page => params[:page], :per_page => 4)
       elsif kind.eql?('cross_province_home')
-        @trips  = Trip.where('id < ? AND kind = ?', params[:id], kind).limit(8)
+        @trips  = Trip.where('id < ? AND kind = ?', params[:id], kind).order(:created_at).paginate(:page => params[:page], :per_page => 4)
       end
     end
 end

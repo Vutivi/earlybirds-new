@@ -40,6 +40,10 @@ class RiderPolicy < ApplicationPolicy
         record.trip.riders.map {|rider| rider.user }.exclude?(user)
     end
 
+    def trip_not_full?
+        record.trip.riders.size < record.trip.seats
+    end
+
 
     def rider?
         record.trip.riders.map {|rider| rider.user }.include?(user)

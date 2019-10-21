@@ -3,7 +3,7 @@ class VehiclesController < ApplicationController
 
   before_action :set_vehicle, only: [:show, :edit, :update, :destroy]
   after_action  :attach_image, only: [:create, :update]
-  after_action  :update_role, only: [:create, :update]
+  # after_action  :update_role, only: [:create, :update]
   # before_action :require_vehicle_images, only: %i[update create]
 
   # GET /vehicles

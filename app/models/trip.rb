@@ -5,8 +5,7 @@ class Trip < ApplicationRecord
   algoliasearch per_environment: true, disable_indexing: Rails.env.test? do
     attributes :start_location, :end_location, :price, :kind, :event, :slug, :vehicle
 
-    searchableAttributes ['start_location', 'end_location', 'vehicle', 'kind']
-    attributesForFaceting ['start_location', 'end_location', 'vehicle', 'kind']
+    searchableAttributes [:start_location, :end_location, :vehicle, :kind, :event]
   end
 
   friendly_id :slugger, use: :slugged

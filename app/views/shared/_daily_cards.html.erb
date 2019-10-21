@@ -1,6 +1,6 @@
-<h2><%= header %></h2>
-<div class="row">
-  <% trips.first(4).each do |trip| %>
+<h2><%= header %><%= search_results_count trips %></h2>
+<div class="row paginated-cards">
+  <% trips.each do |trip| %>
     <div class="col-md-3 col-sm-12 box-placeholder box-placeholder-daily">
       <div class="p-4">
         <span class="category text link"></span>
@@ -53,8 +53,13 @@
         </div> 
     </div> 
   <% end %>
+    <%= will_paginate trips, renderer: WillPaginateInfinite::InfinitePagination %>
 </div>
-<h3 class="view-more"><%= "Show all #{trips.size - 4} + lift clubs <i class='fa fa-angle-right'></i>".html_safe if (trips.size - 4) > 0 %></h3>
+<%
+=begin%>
+ <h3 class="view-more"><%= "Show all #{trips.size - 4} + lift clubs <i class='fa fa-angle-right'></i>".html_safe if (trips.size - 4) > 0 %></h3> 
+<%
+=end%>
 
 <%
 =begin%>

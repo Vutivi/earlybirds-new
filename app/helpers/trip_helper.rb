@@ -20,4 +20,10 @@ module TripHelper
     def is_full? trip
         trip.riders.size >= trip.seats
     end
+
+    def search_results_count trips
+        if params[:keyword].present?
+            "(#{pluralize(trips.size, 'trip')} found)"
+        end
+    end
 end
