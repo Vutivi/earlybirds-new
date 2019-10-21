@@ -496,6 +496,10 @@
 	cursor: pointer;
   }
 
+  .slick-prev {
+	z-index: 100;
+}
+
   @media only screen and (max-width: 720px){
 	.search input {
 		border: 2px solid #00b5ad;
@@ -529,9 +533,6 @@
    
 	}
 
-	.slick-prev {
-		z-index: 100;
-	}
 
 	#sunfish{
 		margin-top: 100px;
