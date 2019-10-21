@@ -6,6 +6,7 @@ class Trip < ApplicationRecord
     attributes :start_location, :end_location, :price, :kind, :event, :slug, :vehicle
 
     searchableAttributes [:start_location, :end_location, :vehicle, :kind, :event]
+    removeWordsIfNoResults 'allOptional'
   end
 
   friendly_id :slugger, use: :slugged
