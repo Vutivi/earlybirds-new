@@ -11,8 +11,8 @@ class EventsController < ApplicationController
   # GET /events/1
   # GET /events/1.json
   def show
-    @event_trips   = @event.trips
-    @related_trips = policy_scope(Trip).where(kind: 'social_events').where.not(event: @event)
+    @event_trips   = @event.trips.paginate(:page => params[:page], :per_page => 4)
+    @related_trips = policy_scope(Trip).where(kind: 'social_events').where.not(event: @event).paginate(:page => params[:page], :per_page => 4)
   end
 
   # GET /events/new
