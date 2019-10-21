@@ -53,7 +53,6 @@ gem 'jquery-ui-rails'
 # gem 'semantic-ui-sass', '~> 2.4', '>= 2.4.0.1'
 # gem "slim-rails"
 gem 'will_paginate', '~> 3.1.0'
-gem 'will_paginate_infinite'
 
 group :development do
   gem 'web-console', '>= 3.3.0'

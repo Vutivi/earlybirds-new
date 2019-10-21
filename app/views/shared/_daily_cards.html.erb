@@ -54,34 +54,4 @@
     </div> 
   <% end %>
 </div>
-<div class="apple_pagination">
-    <div class="page_info">
-      <%= page_entries_info trips %>
-    </div>
-    <%= will_paginate trips, :container => false %>
-</div>
-<%
-=begin%>
- <h3 class="view-more"><%= "Show all #{trips.size - 4} + lift clubs <i class='fa fa-angle-right'></i>".html_safe if (trips.size - 4) > 0 %></h3> 
-<%
-=end%>
-
-<%
-=begin%>
- <h2><%= header %><%= search_results_count @trips %></h2>
-<div class="row trips-container">
-    <%= render @trips %>
-</div>
-<div class="load-more-container">
-        <!-- hide our loading gif image so that we show it when making ajax call via jquery -->
-	<%= image_tag "ajax-loader.gif", style: "display:none;", class: "loading-gif" %>
-	<%= link_to "Load More", trips_path, class: "load-more" %>
-</div> 
-<%
-=end%>
-<%
-=begin%>
- <h3 class="view-more"><%= "Show all #{trips.size - 4} + lift clubs <i class='fa fa-angle-right'></i>".html_safe if (trips.size - 4) > 0 %></h3> 
-<%
-=end%>
-
+<h3 class="view-more"><%= "Show all #{trips.size - 4} + lift clubs <i class='fa fa-angle-right'></i>".html_safe if (trips.size - 4) > 0 %></h3> 
