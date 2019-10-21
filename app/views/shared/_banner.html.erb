@@ -1,11 +1,21 @@
 <section id="sunfish">
   <div class="banner">
-    <h2 class="mb-3 intro">Introducing Earlybirds lift clubs</h2>
+    <%
+=begin%>
+ <h2 class="mb-3 intro">Introducing Earlybirds lift clubs</h2> 
+<%
+=end%>
     <div>
       <figure>
         <img src="https://www.earlybirds.co.za/assets/earlybirds-cover-324e09aaafc2f008d18df84901fd5a074c551aec7ad4ec339379809a8846e433.jpg" alt="earlybirds.co.za banner">
         <figcaption class="top"><h3>Explore lift clubs to your workplace, social events and cross province home</h3></figcaption>
-        <figcaption class="button"><%= button_to 'Explore all lift clubs', trips_path, :class=>"btn btn-bnb", :method => :get %></figcaption>
+        <figcaption class="button">
+          <%
+=begin%>
+ <%= button_to 'Explore all lift clubs', trips_path, :class=>"btn btn-bnb", :method => :get %> 
+<%
+=end%>
+        </figcaption>
         <figcaption class="sign">
           <div class="_exn6n2"><svg viewBox="0 0 470 239" fill="#616668" height="50px" aria-label="" width="98.32635983263597px"></svg></div>
         </figcaption>

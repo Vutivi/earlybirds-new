@@ -3,7 +3,10 @@
   <%= link_to root_path, class: "navbar-wagon-brand" do %>
     <%= image_tag "logo.png", height: 50 %>
   <% end %>
-
+    <div class="search">
+      <input type="text" placeholder="Search lifts">
+      <button type="button">&#10132</button>
+    </div>
   <!-- Right Navigation -->
   <div class="navbar-wagon-right hidden-xs hidden-sm">
     <% if user_signed_in? %>
