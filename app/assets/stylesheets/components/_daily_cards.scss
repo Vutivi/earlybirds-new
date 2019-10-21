@@ -496,9 +496,12 @@
 	cursor: pointer;
   }
 
+  .slick-prev {
+	z-index: 100;
+}
+
   @media only screen and (max-width: 720px){
 	.search input {
-		width: 40%;
 		border: 2px solid #00b5ad;
 		border-radius: 30px;
 		height: 50px;
@@ -521,11 +524,20 @@
 	  }
 
 	  .search {
-		margin: 20px auto;
+		top: 60px;
+		position: absolute;
 		align-items: center;
 		text-align: center;
-		display: flex;
+		display: block;
 		width: 100%;
    
+	}
+
+
+	#sunfish{
+		margin-top: 100px;
+	}
+	.navbar-wagon{
+		padding: 0;
 	}
   }
