@@ -1,5 +1,6 @@
 class MessagesController < ApplicationController
   before_action :set_message, only: [:show, :edit, :update, :destroy]
+  after_action  :send_notification_mail, only: [:create]
 
   # GET /messages
   # GET /messages.json
@@ -30,18 +31,16 @@ class MessagesController < ApplicationController
     @message = Message.new(message_params)
     authorize @message
 
-    respond_to do |format|
       if @message.save
         if params[:format].eql?('json')
-          format.json { render status: 200, json: @message }
+          render status: 200, json: @message
         else
           ActionCable.server.broadcast 'message_channel',
                                       message: message_render(@message)
         end   
       else
-        format.json { render json: @message.errors, status: :unprocessable_entity }
+        render json: @message.errors, status: :unprocessable_entity
       end
-    end
   end
 
   # PATCH/PUT /messages/1
@@ -99,5 +98,12 @@ class MessagesController < ApplicationController
 
     def message_render(message)
       render(partial: 'message', locals: { message: message })
+    end
+
+    def send_notification_mail
+      users = (@message.trip.riders.map {|rider| rider.user} << @message.trip.user).reject {|user| user == current_user }
+      users.each do |user| 
+        AlertMailer.new_trip_message(user, @message, @message.trip).deliver_now
+      end
     end
 end

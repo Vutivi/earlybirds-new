@@ -8,7 +8,7 @@ module TripHelper
     def social_share trip
         kind    = trip.kind.humanize
         time    = kind.eql?('daily work') ? '' : "on #{trip.departure_times.strftime("%d %B %Y, %H:%M ")}"
-        content = "#{kind.capitalize} lift club from #{trip.start_location.split(',')[0]} to #{trip.end_location.split(',')[0]} available #{time}"
+        content = "#{kind.capitalize} lift club from #{trip.start_location.split(',')[0]} to #{trip.end_location.split(',')[0]} available #{time}. Click #{root_url}#{trip_path(trip.slug)} for more information."
 
         social_share_button_tag(content, :url => trip_path(trip.slug), :image => url_for(trip.vehicle.image), desc: content)
     end
