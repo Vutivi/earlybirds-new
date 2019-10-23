@@ -1055,6 +1055,8 @@ GEM
       sprockets (> 3.0)
       sprockets-rails
       tilt
+    sentry-raven (2.12.0)
+      faraday (>= 0.7.6, < 1.0)
     simple_form (5.0.1)
       actionpack (>= 5.0)
       activemodel (>= 5.0)
@@ -1141,6 +1143,7 @@ DEPENDENCIES
   redis (~> 3.0)
   rspec-rails (~> 3.8)
   sass-rails
+  sentry-raven
   simple_form
   social-share-button
   spring
