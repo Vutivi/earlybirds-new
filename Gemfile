@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 ruby '2.5.6'
 
 # misc
+gem 'mini_racer'
 gem 'figaro'
 gem 'jbuilder', '~> 2.0'
 gem 'pg', '~> 0.21'
