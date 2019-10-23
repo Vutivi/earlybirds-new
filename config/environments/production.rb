@@ -98,4 +98,10 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
 
   config.active_storage.service = :amazon
+
+  # configure sentry
+  Raven.configure do |config|
+    config.dsn = ENV['SENTRY_DNS']
+    config.environments = %w[ production ]
+  end
 end
