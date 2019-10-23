@@ -54,6 +54,9 @@ gem 'jquery-ui-rails'
 # gem "slim-rails"
 gem 'will_paginate', '~> 3.1.0'
 
+# error tracking
+gem 'sentry-raven'
+
 group :development do
   gem 'web-console', '>= 3.3.0'
 end
