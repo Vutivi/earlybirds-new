@@ -40,8 +40,11 @@ class TripsController < ApplicationController
   # POST /trips
   # POST /trips.json
   def create
-    @trip      = Trip.new(trip_params)
-    @trip.user = current_user
+    @trip              = Trip.new(trip_params)
+    @trip.user         = current_user
+    @trip.round_trip   = true if params[:round_trip].eql?(nil)
+    @trip.return_times = nil if params[:round_trip].eql?('')
+    
     authorize @trip
     respond_to do |format|
       if @trip.save

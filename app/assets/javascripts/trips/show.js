@@ -24,7 +24,7 @@ $(document).on('click', '.join-trip', function(){
                 }, 1000); 
             },
             error: function(res) {
-                toastr.error(res['responseText']);
+                toastr.error(jQuery.parseJSON(res.responseText)['error']);
             }
         });
     }else if(actionType == 'Leave'){
@@ -40,7 +40,7 @@ $(document).on('click', '.join-trip', function(){
                 }, 1000); 
             },
             error: function(res) {
-                toastr.error(res['responseText']);
+                toastr.error(res['responseText']['error']);
             }
         });
     }
