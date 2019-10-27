@@ -4,17 +4,18 @@ class TripsController < ApplicationController
   # GET /trips
   # GET /trips.json
   def index
-    set_index_results
-    # if params[:id].present?
-    #   @trips = Trip.where('id < ? AND kind = ?', params[:id], kind).limit(8)
-    # else
-      # @trips = Trip.all
-    # end
-
+    @daily_work_trips     = policy_scope(Trip).where(kind: 'daily_work')
+    @social_trips         = policy_scope(Trip).where(kind: 'social_events')
+    @cross_province_trips = policy_scope(Trip).where(kind: 'cross_province_home')
     respond_to do |format|
       format.html
       format.js
     end
+  end
+
+  # Search trips
+  def search
+    set_index_results
   end
 
   # GET /trips/1
@@ -96,8 +97,6 @@ class TripsController < ApplicationController
     end
 
     def set_index_results
-      # if params[:id].present?
-      #   set_based_on_kind(params[:kind])
       if params[:keyword].present?
         trips                 = policy_scope(Trip).search(params[:keyword].split('-').join(' '))
         @daily_work_trips     = trips.select {|trip| trip.kind=='daily_work'}

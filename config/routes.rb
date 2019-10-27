@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   get '/users/profile',           to: 'profiles#index',           as: :profile
   get '/users/settings',          to: 'profiles#settings',        as: :settings
   get '/leads/trip/:trip_id',     to: 'leads#for_single_trip',    as: :leads_for_trip
-  get '/trips/search/:keyword',   to: 'trips#index',              as: :trips_search
+  get '/trips/search/any-trip',   to: 'trips#search',             as: :trips_search
 
   devise_for :users, controllers: {
     omniauth_callbacks: 'users/omniauth_callbacks'

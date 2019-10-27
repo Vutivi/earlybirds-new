@@ -53,5 +53,13 @@
         </div> 
     </div> 
   <% end %>
+  <% if trips.count > WillPaginate.per_page %>
+    <div class="apple_pagination">
+      <div class="page_info">
+      <%= page_entries_info trips  %>
+      </div>
+      <%= will_paginate trips, :container => false %>
+    </div>
+  <% end %>
 </div>
-<h3 class="view-more"><%= "Show all #{trips.size - 4} + lift clubs <i class='fa fa-angle-right'></i>".html_safe if (trips.size - 4) > 0 %></h3> 
+<h3 class="view-more"><%= "Show all #{trips.size - 4} + lift clubs <i class='fa fa-angle-right'></i>".html_safe if (trips.size - 8) > 0 %></h3> 
