@@ -361,231 +361,202 @@ border-color: $primary-color !important;
   font-size:20px;
 }
 
-#fblogin {
-    color: rgb(255, 255, 255);
-    cursor: pointer;
-    display: block;
-    // float: left;
-    // top: 40px;
-    // left: 0px;
-    // height: 50px;
-    // position: absolute;
-    text-align: left;
-    text-decoration: none solid rgb(68, 68, 68);
-    text-shadow: rgb(255, 255, 255) 0px 1px 0px;
-    vertical-align: middle;
-    white-space: nowrap;
-    width: 290px;
-    background: rgba(0, 0, 0, 0) -webkit-linear-gradient(rgb(86, 120, 188), rgb(49, 74, 123)) repeat scroll 0% 0% / auto padding-box border-box;
-    background: rgba(0, 0, 0, 0) linear-gradient(rgb(86, 120, 188), rgb(49, 74, 123)) repeat scroll 0% 0% / auto padding-box border-box;
-    border-top: 1px solid rgb(49, 74, 123);
-    border-right: 1px solid rgb(42, 64, 105);
-    border-bottom: 1px solid rgb(42, 64, 105);
-    border-left: 1px solid rgb(42, 64, 105);
-    -moz-border-radius: 8px;
-    -webkit-border-radius: 8px;
-    border-radius: 8px;
-    font: normal normal 16px/normal 'Helvetica Neue', Helvetica, 'ヒラギノ角ゴ Pro W3', 'Hiragino Kaku Gothic Pro', メイリオ, Meiryo, 'ＭＳ Ｐゴシック', arial, sans-serif;
-    font-size: 16px;
-    margin: 0px;
-    outline: rgb(68, 68, 68) none 0px;
-    overflow: hidden;
-    padding: 10px 18px;
+.login-box:hover {
+  box-shadow: 0 8px 17px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
 }
 
-#fbname {
-    background-position: 0px 0px;
-    bottom: 0px;
-    box-shadow: rgba(0, 0, 0, 0.0470588) 1px 0px 0px 0px;
-    color: rgb(255, 255, 255);
-    cursor: pointer;
-    display: block;
-    height: 48px;
-    left: 0px;
-    position: absolute;
-    text-align: center;
-    text-decoration: none solid rgb(68, 68, 68);
-    text-shadow: rgb(255, 255, 255) 0px 1px 0px;
-    top: 0px;
-    vertical-align: middle;
-    white-space: nowrap;
-    width: 50px;
-    align-self: flex-start;
-    background: rgba(255, 255, 255, 0.0784314) no-repeat scroll 0px 0px / auto padding-box border-box;
-    border: 0px none rgb(68, 68, 68);
-    font: normal normal 16px/normal 'Helvetica Neue', Helvetica, 'ヒラギノ角ゴ Pro W3', 'Hiragino Kaku Gothic Pro', メイリオ, Meiryo, 'ＭＳ Ｐゴシック', arial, sans-serif;
-    outline: rgb(68, 68, 68) none 0px;
+.login-box h2 {
+  margin: 20px 0 20px;
+  padding: 0;
+  text-transform: uppercase;
+  color: #4688F1;
 }
 
-#fbtext {
-    color: rgb(255, 255, 255);
-    cursor: pointer;
-    display: inline-block;
-    height: 17px;
-    text-align: left;
-    text-decoration: none solid rgb(255, 255, 255);
-    text-shadow: rgba(0, 0, 0, 0.247059) 0px -1px 0px;
-    vertical-align: middle;
-    white-space: nowrap;
-    width: 150px;
-    align-self: flex-start;
-    border: 0px none rgb(255, 255, 255);
-    font: normal normal bold 16px/normal 'Helvetica Neue', Helvetica, 'ヒラギノ角ゴ Pro W3', 'Hiragino Kaku Gothic Pro', メイリオ, Meiryo, 'ＭＳ Ｐゴシック', arial, sans-serif;
-    margin: -3px 0px 0px 42px;
-    outline: rgb(255, 255, 255) none 0px;
-}
-
-#gpluslogin {
-    color: rgb(255, 255, 255);
-    cursor: pointer;
-    display: block;
-    float: left;
-    // top: 110px;
-    // left: 0px;
-    // height: 50px;
-    // position: absolute;
-    text-align: left;
-    text-decoration: none solid rgb(68, 68, 68);
-    text-shadow: rgb(255, 255, 255) 0px 1px 0px;
-    vertical-align: middle;
-    white-space: nowrap;
-    width: 290px;
-    background-color: #DD4B39;
-    background: -webkit-linear-gradient(#DD4B39,#D14836);
-    background: linear-gradient(#DD4B39,#D14836);
-    border-top: 1px solid rgb(230, 88, 88);
-    border-right: 1px solid rgb(227, 66, 66);
-    border-bottom: 1px solid rgb(227, 66, 66);
-    border-left: 1px solid rgb(227, 66, 66);
-    -moz-border-radius: 8px;
-    -webkit-border-radius: 8px;
-    border-radius: 8px;
-    font: normal normal 16px/normal 'Helvetica Neue', Helvetica, 'ヒラギノ角ゴ Pro W3', 'Hiragino Kaku Gothic Pro', メイリオ, Meiryo, 'ＭＳ Ｐゴシック', arial, sans-serif;
-    font-size: 16px;
-    margin: 0px;
-    outline: rgb(68, 68, 68) none 0px;
-    overflow: hidden;
-    padding: 10px 18px;
-}
-
-#gpname {
-    background-position: 0px 0px;
-    bottom: 0px;
-    box-shadow: rgba(0, 0, 0, 0.0470588) 1px 0px 0px 0px;
-    color: rgb(255, 255, 255);
-    cursor: pointer;
-    display: block;
-    height: 48px;
-    left: 0px;
-    position: absolute;
-    text-align: center;
-    text-decoration: none solid rgb(68, 68, 68);
-    text-shadow: rgb(255, 255, 255) 0px 1px 0px;
-    top: 0px;
-    vertical-align: middle;
-    white-space: nowrap;
-    width: 50px;
-    align-self: flex-start;
-    background: rgba(255, 255, 255, 0.0666667) no-repeat scroll -43px -44px / auto padding-box border-box;
-    border: 0px none rgb(68, 68, 68);
-    font: normal normal 16px/normal 'Helvetica Neue', Helvetica, 'ヒラギノ角ゴ Pro W3', 'Hiragino Kaku Gothic Pro', メイリオ, Meiryo, 'ＭＳ Ｐゴシック', arial, sans-serif;
-    outline: rgb(68, 68, 68) none 0px;
-}
-
-#gptext {
-    color: rgb(255, 255, 255);
-    cursor: pointer;
-    display: inline-block;
-    height: 17px;
-    text-align: left;
-    text-decoration: none solid rgb(255, 255, 255);
-    text-shadow: rgba(0, 0, 0, 0.247059) 0px -1px 0px;
-    vertical-align: middle;
-    white-space: nowrap;
-    width: 133px;
-    align-self: flex-start;
-    border: 0px none rgb(255, 255, 255);
-    font: normal normal bold 16px/normal 'Helvetica Neue', Helvetica, 'ヒラギノ角ゴ Pro W3', 'Hiragino Kaku Gothic Pro', メイリオ, Meiryo, 'ＭＳ Ｐゴシック', arial, sans-serif;
-    margin: -3px 0px 0px 42px;
-    outline: rgb(255, 255, 255) none 0px;
-}
-
-#twtrlogin {
+.social-button {
+  background-position: 25px 0px;
+  box-sizing: border-box;
   color: rgb(255, 255, 255);
   cursor: pointer;
-  display: block;
-  float: left;
-  // top: 180px;
-  // left: 0px;
-  // height: 50px;
-  // position: absolute;
+  display: inline-block;
+  height: 50px;
+  line-height: 50px;
   text-align: left;
-  text-decoration: none solid rgb(68, 68, 68);
-  text-shadow: rgb(255, 255, 255) 0px 1px 0px;
+  text-decoration: none;
+  text-transform: uppercase;
   vertical-align: middle;
-  white-space: nowrap;
-  width: 290px;
-  background-color: #3fa7d0;
-	background: -webkit-linear-gradient(#5fbee4, #2091bd);
-	background: linear-gradient(#5fbee4, #2091bd);
-	border: 1px solid #1c82a7;
-	border-top-color: #2091bd;
-	text-shadow: 0 1px #ffffff;
-	border-top: 1px solid rgb(32, 145, 189);
-    border-right: 1px solid rgb(28, 130, 167);
-    border-bottom: 1px solid rgb(28, 130, 167);
-    border-left: 1px solid rgb(28, 130, 167);
-    -moz-border-radius: 8px;
-    -webkit-border-radius: 8px;
-    border-radius: 8px;
-    font: normal normal 16px/normal 'Helvetica Neue', Helvetica, 'ヒラギノ角ゴ Pro W3', 'Hiragino Kaku Gothic Pro', メイリオ, Meiryo, 'ＭＳ Ｐゴシック', arial, sans-serif;
-    font-size: 16px;
-    margin: 0px;
-    outline: rgb(68, 68, 68) none 0px;
-    overflow: hidden;
-    padding: 10px 18px;
+  width: 100%;
+  border-radius: 3px;
+  margin: 10px auto;
+  outline: rgb(255, 255, 255) none 0px;
+  padding-left: 20%;
+  transition: all 0.2s cubic-bezier(0.72, 0.01, 0.56, 1) 0s;
+  -webkit-transition: all .3s ease;
+  -moz-transition: all .3s ease;
+  -ms-transition: all .3s ease;
+  -o-transition: all .3s ease;
+  transition: all .3s ease;
 }
 
-#twtrname {
-    background-position: 0px 0px;
-    bottom: 0px;
-    box-shadow: rgba(0, 0, 0, 0.0470588) 1px 0px 0px 0px;
-    color: rgb(255, 255, 255);
-    cursor: pointer;
-    display: block;
-    height: 48px;
-    left: 0px;
-    position: absolute;
-    text-align: center;
-    text-decoration: none solid rgb(68, 68, 68);
-    text-shadow: rgb(255, 255, 255) 0px 1px 0px;
-    top: 0px;
-    vertical-align: middle;
-    white-space: nowrap;
-    width: 50px;
-    align-self: flex-start;
-    background: rgba(255, 255, 255, 0.0666667) no-repeat scroll -43px -44px / auto padding-box border-box;
-    border: 0px none rgb(68, 68, 68);
-    font: normal normal 16px/normal 'Helvetica Neue', Helvetica, 'ヒラギノ角ゴ Pro W3', 'Hiragino Kaku Gothic Pro', メイリオ, Meiryo, 'ＭＳ Ｐゴシック', arial, sans-serif;
-    outline: rgb(68, 68, 68) none 0px;
+#facebook-connect {
+  background: rgb(255, 255, 255) url('https://raw.githubusercontent.com/eswarasai/social-login/master/img/facebook.svg?sanitize=true') no-repeat scroll 5px 0px / 30px 50px padding-box border-box;
+  border: 1px solid rgb(60, 90, 154);
 }
 
-#twtrtext {
-    color: rgb(255, 255, 255);
-    cursor: pointer;
-    display: inline-block;
-    height: 17px;
-    text-align: left;
-    text-decoration: none solid rgb(255, 255, 255);
-    text-shadow: rgba(0, 0, 0, 0.247059) 0px -1px 0px;
-    vertical-align: middle;
-    white-space: nowrap;
-    width: 133px;
-    align-self: flex-start;
-    border: 0px none rgb(255, 255, 255);
-    font: normal normal bold 16px/normal 'Helvetica Neue', Helvetica, 'ヒラギノ角ゴ Pro W3', 'Hiragino Kaku Gothic Pro', メイリオ, Meiryo, 'ＭＳ Ｐゴシック', arial, sans-serif;
-    margin: -3px 0px 0px 42px;
-    outline: rgb(255, 255, 255) none 0px;
+#facebook-connect:hover {
+  border-color: rgb(60, 90, 154);
+  background: rgb(60, 90, 154) url('https://raw.githubusercontent.com/eswarasai/social-login/master/img/facebook-white.svg?sanitize=true') no-repeat scroll 5px 0px / 30px 50px padding-box border-box;
+  -webkit-transition: all .8s ease-out;
+  -moz-transition: all .3s ease;
+  -ms-transition: all .3s ease;
+  -o-transition: all .3s ease;
+  transition: all .3s ease-out;
+  text-decoration: none;
+}
+
+#facebook-connect span {
+  box-sizing: border-box;
+  color: rgb(60, 90, 154);
+  cursor: pointer;
+  text-align: center;
+  text-transform: uppercase;
+  border: 0px none rgb(255, 255, 255);
+  outline: rgb(255, 255, 255) none 0px;
+  -webkit-transition: all .3s ease;
+  -moz-transition: all .3s ease;
+  -ms-transition: all .3s ease;
+  -o-transition: all .3s ease;
+  transition: all .3s ease;
+}
+
+#facebook-connect:hover span {
+  color: #FFF;
+  -webkit-transition: all .3s ease;
+  -moz-transition: all .3s ease;
+  -ms-transition: all .3s ease;
+  -o-transition: all .3s ease;
+  transition: all .3s ease;
+  text-decoration: none;
+}
+
+#google-connect {
+  background: rgb(255, 255, 255) url('https://raw.githubusercontent.com/eswarasai/social-login/master/img/google-plus.png') no-repeat scroll 5px 0px / 50px 50px padding-box border-box;
+  border: 1px solid rgb(220, 74, 61);
+}
+
+#google-connect:hover {
+  border-color: rgb(220, 74, 61);
+  background: rgb(220, 74, 61) url('https://raw.githubusercontent.com/eswarasai/social-login/master/img/google-plus-white.png') no-repeat scroll 5px 0px / 50px 50px padding-box border-box;
+  -webkit-transition: all .8s ease-out;
+  -moz-transition: all .3s ease;
+  -ms-transition: all .3s ease;
+  -o-transition: all .3s ease;
+  transition: all .3s ease-out;
+}
+
+#google-connect span {
+  box-sizing: border-box;
+  color: rgb(220, 74, 61);
+  cursor: pointer;
+  text-align: center;
+  text-transform: uppercase;
+  border: 0px none rgb(220, 74, 61);
+  outline: rgb(255, 255, 255) none 0px;
+  -webkit-transition: all .3s ease;
+  -moz-transition: all .3s ease;
+  -ms-transition: all .3s ease;
+  -o-transition: all .3s ease;
+  transition: all .3s ease;
+}
+
+#google-connect:hover span {
+  color: #FFF;
+  -webkit-transition: all .3s ease;
+  -moz-transition: all .3s ease;
+  -ms-transition: all .3s ease;
+  -o-transition: all .3s ease;
+  transition: all .3s ease;
+}
+
+#twitter-connect {
+  background: rgb(255, 255, 255) url('https://raw.githubusercontent.com/eswarasai/social-login/master/img/twitter.png') no-repeat scroll 5px 1px / 45px 45px padding-box border-box;
+  border: 1px solid rgb(85, 172, 238);
+}
+
+#twitter-connect:hover {
+  border-color: rgb(85, 172, 238);
+  background: rgb(85, 172, 238) url('https://raw.githubusercontent.com/eswarasai/social-login/master/img/twitter-white.png') no-repeat scroll 5px 1px / 45px 45px padding-box border-box;
+  -webkit-transition: all .8s ease-out;
+  -moz-transition: all .3s ease;
+  -ms-transition: all .3s ease;
+  -o-transition: all .3s ease;
+  transition: all .3s ease-out;
+  text-decoration: none;
+}
+
+#twitter-connect span {
+  box-sizing: border-box;
+  color: rgb(85, 172, 238);
+  cursor: pointer;
+  text-align: center;
+  text-transform: uppercase;
+  border: 0px none rgb(220, 74, 61);
+  outline: rgb(255, 255, 255) none 0px;
+  -webkit-transition: all .3s ease;
+  -moz-transition: all .3s ease;
+  -ms-transition: all .3s ease;
+  -o-transition: all .3s ease;
+  transition: all .3s ease;
+}
+
+#twitter-connect:hover span {
+  color: #FFF;
+  -webkit-transition: all .3s ease;
+  -moz-transition: all .3s ease;
+  -ms-transition: all .3s ease;
+  -o-transition: all .3s ease;
+  transition: all .3s ease;
+  text-decoration: none;
+}
+
+#linkedin-connect {
+  background: rgb(255, 255, 255) url('https://raw.githubusercontent.com/eswarasai/social-login/master/img/linkedin.svg?sanitize=true') no-repeat scroll 13px 0px / 28px 45px padding-box border-box;
+  border: 1px solid rgb(0, 119, 181);
+}
+
+#linkedin-connect:hover {
+  border-color: rgb(0, 119, 181);
+  background: rgb(0, 119, 181) url('https://raw.githubusercontent.com/eswarasai/social-login/master/img/linkedin-white.svg?sanitize=true') no-repeat scroll 13px 0px / 28px 45px padding-box border-box;
+  -webkit-transition: all .8s ease-out;
+  -moz-transition: all .3s ease;
+  -ms-transition: all .3s ease;
+  -o-transition: all .3s ease;
+  transition: all .3s ease-out;
+  text-decoration: none;
+}
+
+#linkedin-connect span {
+  box-sizing: border-box;
+  color: rgb(0, 119, 181);
+  cursor: pointer;
+  text-align: center;
+  text-transform: uppercase;
+  border: 0px none rgb(0, 119, 181);
+  outline: rgb(255, 255, 255) none 0px;
+  -webkit-transition: all .3s ease;
+  -moz-transition: all .3s ease;
+  -ms-transition: all .3s ease;
+  -o-transition: all .3s ease;
+  transition: all .3s ease;
+}
+
+#linkedin-connect:hover span {
+  color: #FFF;
+  -webkit-transition: all .3s ease;
+  -moz-transition: all .3s ease;
+  -ms-transition: all .3s ease;
+  -o-transition: all .3s ease;
+  transition: all .3s ease;
+  text-decoration: none;
 }
 
 
