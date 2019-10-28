@@ -9,7 +9,7 @@
  <%= f.select(:make, CarsService.makes, {}, {:class => "selectpicker makes", :id => "makes", 'data-live-search' => "true"}) %> 
 <%
 =end%>
-    <%= f.input :make, :collection => CarMake.all %> 
+    <%= f.input :make, :collection => CarMake.all, :value_method => :name %> 
     <%= f.input :model, :collection => [] %>
     <%= f.input :licence_plate, :placeholder => 'Do not leave any spaces.', :hint => 'We do not share this, it is used to verify you are the owner' %>
     <%= f.input :color %>
