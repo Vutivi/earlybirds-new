@@ -1,5 +1,5 @@
 $(document).on('turbolinks:load', function(){
-   fillMakes();
+   // fillMakes();
    $(document).on('change', '#vehicle_make', function(){
       var vehicleMake = this.value;
       vehicleMake     = /\s/.test(vehicleMake) ? vehicleMake.split(' ').join('%20') : vehicleMake

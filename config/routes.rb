@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :car_makes
   resources :categories
   resources :leads, only: [:create]
   resources :riders, only: [:create, :destroy]
