@@ -7,7 +7,7 @@ class User < ApplicationRecord
          :confirmable, :lockable
   devise :omniauthable, omniauth_providers: %i[twitter google_oauth2 facebook]
 
-  validates :email, :cellphone, :last_name, :first_name, presence: true
+  validates :email, :last_name, :first_name, presence: true
   validates_uniqueness_of :email, :cellphone, :identity_number, :licence_number, :allow_blank => true, :allow_nil => true
   validates :identity_number, length: {minimun: 13, maximum: 13}
      
