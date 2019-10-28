@@ -14,6 +14,9 @@ module Earlybirds
       generate.test_framework  :test_unit, fixture: false
     end
 
+    config.enable_dependency_loading = true
+    config.autoload_paths << Rails.root.join('lib')
+
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 5.1
 
