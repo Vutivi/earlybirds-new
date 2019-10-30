@@ -1,7 +1,7 @@
 <h2><%= header %><%= search_results_count trips %></h2>
-<div class="row paginated-cards mt-3">
+<div class="row top-buffer paginated-cards mt-4">
   <% trips.each do |trip| %>
-    <div class="col-md-3 col-sm-12 box-placeholder box-placeholder-daily">
+    <div class="col-md-4 col-sm-12 box-placeholder box-placeholder-daily">
       <div class="p-4">
         <span class="category text link"></span>
         <h4 class="text line"></h4>
@@ -19,7 +19,7 @@
       </div>
     </div>
 
-    <div class="col-md-3 col-sm-12 daily-trip">
+    <div class="col-md-4 col-sm-12 daily-trip">
       <div class="card card__dark card__dark--magenta custom">
         <div class="media media--16-9"> <img src="<%= url_for(trip.vehicle.thumbnail) %>"> </div>
             <div class="primary-title">
@@ -27,14 +27,14 @@
                   R<%= trip.price %>
               </div>
               <div class="primary-text">
-                <p class="text-center" style="padding-bottom:10px"><%= trip.short_start_location %></p>
+                <p class="text-center" style="padding-bottom:10px"><%= truncate(trip.short_start_location, length: 30) %></p>
                   <div class="from_to">
                     <span>TO</span> 
                   </div>
-                <p class="text-center"><%= trip.short_end_location %></p> 
+                <p class="text-center"><%= truncate(trip.short_end_location, length: 30) %></p> 
               </div>
             </div>
-            <div class="d-inline p-2 text-center" style="margin-top:10px;">Departs at <%= trip.departure_times.strftime('%H:%m %p') %> <%= 'daily' if trip.kind.eql?('daily_work')%></div>
+            <div class="d-inline p-2 text-center" style="margin-top:10px;">Departs at <%= trip_time(trip.kind, trip.departure_times) %></div>
             <div class="d-inline p-2 bg-secondary text-white text-center">
                 <div class="action-icons icon-color--yellow"><span><i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i>
              </div>
@@ -62,4 +62,8 @@
     </div>
   <% end %>
 </div>
-<h3 class="view-more"><%= "Show all #{trips.size} + lift clubs <i class='fa fa-angle-right'></i>".html_safe if (trips.size - 4) > 0 %></h3> 
+<%
+=begin%>
+ <h3 class="view-more"><%= "Show all #{trips.size} + lift clubs <i class='fa fa-angle-right'></i>".html_safe if (trips.size - 4) > 0 %></h3>  
+<%
+=end%>

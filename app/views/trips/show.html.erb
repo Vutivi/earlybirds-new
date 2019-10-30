@@ -9,14 +9,19 @@
 
       <div class="trip-info col-md-5" style="padding-right: 0">
       <ul class="list-group">
+          <% if @trip.kind.eql?('social_events') %>
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+              Event name: <span class="badge badge-secondary badge-pill"><%= @trip.event.name %></span>
+            </li>
+          <% end %>
           <li class="list-group-item d-flex justify-content-between align-items-center">
             Departure: 
-            <span class="badge badge-secondary badge-pill"><%= @trip.departure_times.strftime("%d %B %Y, %H:%M %p")  %><%= ", daily" if @trip.kind.eql?('daily_work')%></span>
+            <span class="badge badge-secondary badge-pill"><%= trip_time(@trip.kind, @trip.departure_times) %></span>
           </li>
           <% if @trip.round_trip? %>
             <li class="list-group-item d-flex justify-content-between align-items-center">
               Returns:
-              <span class="badge badge-secondary badge-pill"><%= @trip.return_times.strftime("%d %B %Y, %H:%M %p")  %></span>
+              <span class="badge badge-secondary badge-pill"><%= trip_time(@trip.kind, @trip.return_times)  %></span>
             </li>
           <% end %>
           <li class="list-group-item d-flex justify-content-between align-items-center">
@@ -29,7 +34,7 @@
           </li>
           <li class="list-group-item d-flex justify-content-between align-items-center">
             Call driver:
-            <span class="badge badge-secondary badge-pill"><%= @trip.user.cellphone %></span>
+            <span class="badge badge-secondary badge-pill"><%= @trip.user.cellphone.present? ? @trip.user.cellphone : 'Not supplied' %></span>
           </li>
       </ul>
 

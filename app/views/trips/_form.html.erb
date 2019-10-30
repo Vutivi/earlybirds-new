@@ -18,6 +18,10 @@
         </div>
         <%= f.input :departure_times, :hint => "When is the departure date? Set just the time and leave the date as is if this is a daily work trip." %>
         <%= f.input :return_times, :hint => "When is the return date? Set just the time and leave the date as is if this is a daily work trip." %>
+        <div class="daily-time">
+             <%= f.input :departure_times, :hint => "When is the departure date? Set just the time and leave the date as is if this is a daily work trip." %>
+             <%= f.input :return_times, :hint => "When is the return date? Set just the time and leave the date as is if this is a daily work trip." %>
+        </div>
         <%= f.association :plan, :hint => "All rides are free." %>
         <%= f.association :vehicle, :collection => Vehicle.where(user: current_user), :label_method => :make, :value_method => :id %>
         <%

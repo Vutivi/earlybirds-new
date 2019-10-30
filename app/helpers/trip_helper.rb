@@ -26,4 +26,8 @@ module TripHelper
             "(#{pluralize(trips.size, 'trip')} found)"
         end
     end
+
+    def trip_time kind, time
+        kind.eql?('daily_work') ? "#{time.strftime("%d %B %Y, %H:%M %p")} Week daily" : time.strftime("%d %B %Y, %H:%M %p")
+    end
 end

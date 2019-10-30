@@ -1,6 +1,6 @@
 
 <h2>Long distance rides</h2>
-<div data-slick='{"slidesToShow": 4, "slidesToScroll": 4}' class="scroller responsive data left-align-slick">
+<div data-slick='{"slidesToShow": 3, "slidesToScroll": 3}' class="scroller responsive data left-align-slick">
     <% @cross_province_trips.each do |trip| %>
         <%
 =begin%>
@@ -28,14 +28,14 @@
                     R<%= trip.price %>
                 </div>
                 <div class="primary-text">
-                 <p class="text-center" style="padding-bottom:10px"><%= trip.short_start_location  %></p>
+                 <p class="text-center" style="padding-bottom:10px"><%= truncate(trip.short_start_location, length: 30) %></p>
                  <div class="from_to">
                     <span>TO</span> 
                   </div>
-                  <p class="text-center" style="padding-bottom:10px"><%= trip.short_end_location  %></p>
+                  <p class="text-center" style="padding-bottom:10px"><%= truncate(trip.short_end_location, length: 30) %></p>
                 </div>
                 </div>
-                <div class="text-center" style="margin-top:15px;"><i class="fa fa-clock-o"></i><%= trip.departure_times.strftime('%d %B %Y, %H:%m %p') %> <%= 'daily' if trip.kind.eql?('daily_work')%></div>
+                <div class="text-center" style="margin-top:15px;"><i class="fa fa-clock-o"></i><%= trip_time(trip.kind, trip.departure_times) %></div>
                 <div class="bg-secondary text-white text-center" style="padding:6px; margin-top:5px">
                     <div class="action-icons icon-color--yellow"><span><i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i>
                     </div>

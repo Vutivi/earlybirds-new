@@ -8,6 +8,7 @@
                         <div class="primary-title">
                             <div class="primary-text"><%= link_to trip.event.name, event_path(trip.event), :class => "event-link" %></div>
                             <div class="secondary-text">from <%= trip.start_location %></div>
+                            <p><%= trip_time(trip.kind, trip.departure_times) %></p>
                         </div>
                         <div class="actions border-top">
                             <div class="action-buttons">

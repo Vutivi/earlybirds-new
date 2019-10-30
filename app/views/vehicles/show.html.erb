@@ -40,6 +40,7 @@
 <%= link_to 'Back', vehicles_path %> 
 <%
 =end%>
+<%= link_to 'Create new trip', new_trip_path %>
 <section class="better-space"></section>
 <div class="driver-details">
     <h3><%= "#{@vehicle.make} - #{@vehicle.model}" %> by <%= link_to @vehicle.user.full_name, profile_path %> </i></h3>
