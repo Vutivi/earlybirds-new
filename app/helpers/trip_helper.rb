@@ -28,6 +28,6 @@ module TripHelper
     end
 
     def trip_time kind, time
-        kind.eql?('daily_work') ? "#{time.strftime("%d %B %Y, %H:%M %p")} Weekdays" : time.strftime("%d %B %Y, %H:%M %p")
+        kind.eql?('daily_work') ? "#{time.strftime("%H:%M %p")} Weekdays" : time.strftime("%d %B %Y, %H:%M %p")
     end
 end
