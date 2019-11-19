@@ -22,7 +22,7 @@
 =end%>
         <!-- Card example 06 -->
         <div class="card card__dark card__dark--magenta long-trip">
-            <div class="media media--16-9" style="background-image: url(#{<%= url_for(trip.vehicle.image) %>}); background-repeat: no-repeat; background-size: cover;"></div>
+            <div class="media media--16-9" style="background-image: url(https://earlybirds.co.za<%= Rails.application.routes.url_helpers.rails_representation_url(trip.vehicle.image.variant(resize: "500x500").processed, only_path: true) %>); background-repeat: no-repeat; background-size: cover;"></div>
             <div class="primary-title">
                 <div class="primary-text float-rightprice btn btn-info price">
                     R<%= trip.price %>

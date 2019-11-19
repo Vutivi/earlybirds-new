@@ -4,7 +4,7 @@
             <% @social_trips.each do |trip| %>
                     <!-- Card example 06 -->
                     <div class="card card__small card__dark card__dark--magenta">
-                        <div class="media" style="background-image: url(#{<%= url_for(trip.vehicle.image) %>}); background-repeat: no-repeat; background-size: cover;"></div>
+                        <div class="media" style="background-image: url(https://earlybirds.co.za<%= Rails.application.routes.url_helpers.rails_representation_url(trip.vehicle.image.variant(resize: "500x500").processed, only_path: true) %>); background-repeat: no-repeat; background-size: cover;"></div>
                         <div class="primary-title">
                             <div class="primary-text"><%= link_to trip.event.name, event_path(trip.event), :class => "event-link" %></div>
                             <div class="secondary-text">from <%= trip.start_location %></div>
