@@ -19,9 +19,9 @@
       </div>
     </div>
 
-    <div class="col-md-4 col-sm-12 daily-trip">
+    <div class="col-md-4 col-sm-12 daily-trip" style="margin-bottom: 20px">
       <div class="card card__dark card__dark--magenta custom">
-        <div class="media media--16-9"> <img src="<%= url_for(trip.vehicle.thumbnail) %>"> </div>
+        <div class="media media--16-9" style="background-image: url(#{<%= url_for(trip.vehicle.image) %>}); background-repeat: no-repeat; background-size: cover;"> </div>
             <div class="primary-title">
               <div class="primary-text float-right price btn btn-info">
                   R<%= trip.price %>
