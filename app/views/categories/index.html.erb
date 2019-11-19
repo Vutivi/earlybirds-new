@@ -80,7 +80,8 @@
           <% @categories.each do |category| %>
                   <!-- Card example 06 -->
                   <div class="card card__small card__dark card__dark--magenta">
-                      <div class="media"> <%= image_tag category&.small, :alt=>"" %> </div>
+                      <div class="media" style="background-image: url(https://earlybirds.co.za<%= Rails.application.routes.url_helpers.rails_representation_url(category&.image.variant(resize: "500x500").processed, only_path: true) %>); background-repeat: no-repeat; background-size: cover;"></div>
+
                       <div class="primary-title">
                           <div class="primary-text"><%= link_to category.name, category_path(category), :class => "event-link" %></div>
                       </div>
