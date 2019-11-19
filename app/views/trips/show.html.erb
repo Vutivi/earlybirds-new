@@ -32,8 +32,16 @@
             <span class="badge badge-secondary badge-pill"><%= @trip.seats - @trip.riders.size %></span>
           </li>
           <li class="list-group-item d-flex justify-content-between align-items-center">
-            Call driver:
-            <span class="badge badge-secondary badge-pill"><%= @trip.user.cellphone.present? ? @trip.user.cellphone : 'Not supplied' %></span>
+            <%
+=begin%>
+ Call driver: 
+<%
+=end%>
+            <%
+=begin%>
+ <span class="badge badge-secondary badge-pill"><%= @trip.user.cellphone.present? ? @trip.user.cellphone : 'Not supplied' %></span> 
+<%
+=end%>
           </li>
       </ul>
 
