@@ -26,7 +26,7 @@ class LeadPolicy < ApplicationPolicy
 
 
     def for_single_trip?
-       record.map {|lead| lead.trip.user }.all?(user)
+       record.map {|lead| lead.trip.user }.all?(user) || user.admin?
     end
 
     def new?
