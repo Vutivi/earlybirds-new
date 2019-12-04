@@ -42,6 +42,9 @@
             <% end %>
 
           </li>
+          <% if current_user_is_owner?(@trip) || current_user&.admin? %>
+            <li><%= link_to 'Edit your trip', edit_trip_path(@trip), class: "fa fa-pencil-square-o" %></li>
+          <% end %>
       </ul>
 
         <div class="social-icons">
@@ -58,6 +61,7 @@
             <span class="fa fa-eye"> <%= link_to "View #{@trip.leads.size} leads for this trip", leads_for_trip_path(@trip.id), :method => :get %></span>
           <% end %>
       </div>
+
   </div>
 
   <div class="col-md-7">
