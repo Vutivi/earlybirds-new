@@ -63,7 +63,7 @@
   </div>
 
   <div class="col-md-7">
-    <% if rider_id(current_user, @trip).present? || current_user_is_owner?(@trip) %>
+    <% if rider_id(current_user, @trip).present? || current_user_is_owner?(@trip) || current_user&.admin? %>
       <div class="chat">
         <h3> Chat with <span>this trip riders and driver</span> <i class="fa fa-comment-dots"></i></h3>
         <div class="messages">

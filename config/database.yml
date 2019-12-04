@@ -85,4 +85,4 @@ production:
   username: <%= ENV["DATABASE_USER"] %>
   password: <%= ENV["DATABASE_PASSWORD"] %>
   host: localhost
-  pool: 50
+  pool: 197
