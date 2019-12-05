@@ -21,7 +21,7 @@ class TripsController < ApplicationController
   # GET /trips/1
   # GET /trips/1.json
   def show
-    track_action("View", @trip)
+    track_action("View", @trip) unless (current_user == @trip.user || current_user.admin?)
     @messages = @trip.messages
     @riders   = @trip.riders
   end
