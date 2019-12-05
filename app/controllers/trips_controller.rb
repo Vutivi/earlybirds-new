@@ -21,10 +21,10 @@ class TripsController < ApplicationController
   # GET /trips/1
   # GET /trips/1.json
   def show
-    unless (current_user.present && (current_user == @trip.user || current_user&.admin?))
+    unless (current_user.present? && (current_user == @trip.user || current_user&.admin?))
       track_action("View", @trip) 
     end
-    
+
     @messages = @trip.messages
     @riders   = @trip.riders
   end
