@@ -13,7 +13,7 @@
  <%= link_to "Create a ride", "#", class: "navbar-wagon-item navbar-wagon-link" %> 
 <%
 =end%>
-      <%= link_to "Create ride", new_trip_path, class: "navbar-wagon-item navbar-wagon-link" %>
+      <%= link_to "Create a ride", new_trip_path, class: "navbar-wagon-item navbar-wagon-link" %>
       <%= link_to "Your rides", profile_path, class: "navbar-wagon-item navbar-wagon-link" %>
       <%= link_to "Your messages", messages_path, class: "navbar-wagon-item navbar-wagon-link" %>
       <%= link_to "Your vehicles", vehicles_path, class: "navbar-wagon-item navbar-wagon-link" %>
@@ -55,7 +55,7 @@
       <i class="fa fa-bars dropdown-toggle" data-toggle="dropdown"></i>
       <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
         <% if user_signed_in? %>
-          <li><%= link_to "Create ride", new_trip_path %></li>
+          <li><%= link_to "Create a ride", new_trip_path %></li>
           <li><%= link_to "Your rides", profile_path %></li>
           <li><%= link_to "Your messages", messages_path %></li>
           <li><%= link_to "Your vehicles", vehicles_path %></li>
