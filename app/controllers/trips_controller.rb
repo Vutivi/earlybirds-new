@@ -45,6 +45,7 @@ class TripsController < ApplicationController
     @trip.user         = current_user
     @trip.round_trip   = true if params[:round_trip].eql?(nil)
     @trip.return_times = nil if params[:round_trip].eql?('')
+    @trip.kind         = 'cross_province_home'
     
     authorize @trip
     respond_to do |format|

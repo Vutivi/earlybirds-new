@@ -1,13 +1,13 @@
 class Trip < ApplicationRecord
   extend FriendlyId
-  include AlgoliaSearch
+  # include AlgoliaSearch
 
-  algoliasearch per_environment: true, disable_indexing: Rails.env.test? do
-    attributes :start_location, :end_location, :price, :kind, :event, :slug, :vehicle
+  # algoliasearch per_environment: true, disable_indexing: Rails.env.test? do
+  #   attributes :start_location, :end_location, :price, :kind, :event, :slug, :vehicle
 
-    searchableAttributes [:start_location, :end_location, :vehicle, :kind, :event]
-    removeWordsIfNoResults 'allOptional'
-  end
+  #   searchableAttributes [:start_location, :end_location, :vehicle, :kind, :event]
+  #   removeWordsIfNoResults 'allOptional'
+  # end
 
   friendly_id :slugger, use: :slugged
   visitable :ahoy_visit

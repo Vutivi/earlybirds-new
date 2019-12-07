@@ -2,8 +2,16 @@
   <%= f.error_notification %>
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
-        <%= f.input :kind, as: :select, collection: Trip.kinds.map { |key, value| [key.humanize, key] }%>
-        <%= f.association :event %>
+        <%
+=begin%>
+ <%= f.input :kind, as: :select, collection: Trip.kinds.map { |key, value| [key.humanize, key] }%> 
+<%
+=end%>
+        <%
+=begin%>
+ <%= f.association :event %> 
+<%
+=end%>
         <%= f.input :start_location, {:type => "search", :placeholder => "Where do we start our trip?", :hint => "Submit the entire address." } %>
         <%= f.input :end_location, {:type => "search", :placeholder => "Where does our trip end?", :hint => "Submit the entire address."} %>
   

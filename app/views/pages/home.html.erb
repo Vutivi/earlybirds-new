@@ -1,11 +1,22 @@
 <%= render 'shared/banner' %>
 <section class="better-space"></section>
-<%= render 'shared/events_slider' %>
-<%= render 'shared/events_advert' %> 
-<section class="better-space"></section>
-<%= render 'shared/long_slider' %>
-<section class="better-space"></section>
 <%= render 'shared/rider_adverts' %>
-<section class="better-space"></section>
-<%= render 'shared/daily_cards', header: 'Daily work lift clubs', trips: @daily_work_trips %>
-<section class="better-space"></section>
+<section class="better-space"></section> 
+<h2 id="trips">Available long distance rides</h2>
+<div class="row top-buffer paginated-cards mt-4">
+    <%= render @trips %>
+</div
+<section class="better-space"></section> 
+
+
+
+ <%
+=begin%>
+ <%= render 'shared/events_slider' %> 
+ <%= render 'shared/events_advert' %>  
+ <section class="better-space"></section> 
+ <%= render 'shared/long_slider' %> 
+ <section class="better-space"></section>  
+<%
+=end
+%>

@@ -1,4 +1,4 @@
-<h2><%= header %><%= search_results_count trips %></h2>
+<h2 id="trips"><%= header %><%= search_results_count trips %></h2>
 <div class="row top-buffer paginated-cards mt-4">
   <% trips.each do |trip| %>
     <div class="col-md-4 col-sm-12 box-placeholder box-placeholder-daily">
@@ -53,17 +53,22 @@
         </div> 
     </div> 
   <% end %>
-  <% if trips.count > WillPaginate.per_page %>
+  <%
+=begin%>
+ <% if trips.count > WillPaginate.per_page %>
     <div class="apple_pagination">
       <div class="page_info">
       <%= page_entries_info trips  %>
       </div>
       <%= will_paginate trips, :container => false %>
     </div>
-  <% end %>
+  <% end %> 
+<%
+=end%>
 </div>
 <%
 =begin%>
- <h3 class="view-more"><%= "Show all #{trips.size} + lift clubs <i class='fa fa-angle-right'></i>".html_safe if (trips.size - 4) > 0 %></h3>  
+ <h3 class="view-more"><%= "Show all #{trips.size} + lift clubs <i class='fa fa-angle-right'></i>".html_safe if (trips.size - 9) > 0 %></h3>   
 <%
 =end%>
+

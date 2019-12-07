@@ -4,7 +4,7 @@ module ApplicationHelper
     end
 
     def current_user_is_owner? ownable
-        current_user.eql?(ownable.user)
+        current_user.eql?(ownable.user) || current_user&.admin?
     end
 
     def set_user_profile_image user

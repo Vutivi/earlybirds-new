@@ -18,8 +18,16 @@
           <h5 class="links-header">Discover</h5>
           <a class="link-item" href="#">Trust & Safety</a>
           <a class="link-item" href="#">Earlybirds Picks</a>
-          <a class="link-item" href="#">Work Rides</a>
-          <a class="link-item" href="#">Social Events Rides</a>
+          <%
+=begin%>
+ <a class="link-item" href="#">Work Rides</a> 
+<%
+=end%>
+          <%
+=begin%>
+ <a class="link-item" href="#">Social Events Rides</a> 
+<%
+=end%>
           <a class="link-item" href="#">Cross Province Rides</a>
           <a class="link-item" href="#">Site Map</a>
         </div>
@@ -31,12 +39,16 @@
           <a class="link-item" href="#">Instant Bookings</a>
           <a class="link-item" href="/trips/new">Create a ride</a>
         </div>
-        <div id="hosting-links" class="links-list">
+        <%
+=begin%>
+ <div id="hosting-links" class="links-list">
           <h5 class="links-header">Browse rides by events</h5>
           <% Event.limit(5).each do |event| %>
             <%= link_to truncate(event.name, length: 48), event_path(event.slug), :class=>"link-item" %>
           <% end %>
-        </div>
+        </div> 
+<%
+=end%>
       </section>
       <section class="dropdown-section">
         

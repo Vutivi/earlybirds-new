@@ -101,9 +101,13 @@
               <span>Email: <span>verified</span> <i class="fa fa-check"></i> </span>
               <span>Phone:  <span>verified</span> <i class="fa fa-close"></i> </span>
           </div>
-          <div class="detail trips">
+          <%
+=begin%>
+ <div class="detail trips">
               <span>trips: <span><%= pluralize(@trip.user.trips.count, 'trip') %></span> </span>
-          </div> 
+          </div>  
+<%
+=end%>
           <div class="detail Member ">
               <span><span>Member since <%= @trip.user.created_at.strftime("%B, %Y") %></span> </span>
           </div>
