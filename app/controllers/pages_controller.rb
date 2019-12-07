@@ -11,7 +11,7 @@ class PagesController < ApplicationController
       # and limit the results to 9
       @trips = Trip.where("kind = 2 AND id < ?", params[:id]).limit(9)
     else
-      @trips = Trip.limit(9)
+      @trips = Trip.where(kind: 'cross_province_home').limit(9)
     end
     respond_to do |format|
       format.html
