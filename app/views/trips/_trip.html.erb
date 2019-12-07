@@ -31,7 +31,7 @@
             <p class="text-center"><%= trip.short_end_location %></p> 
           </div>
         </div>
-        <div class="d-inline p-2 text-center" style="margin-top:10px;">Departs at <%= trip.departure_times.strftime('%H:%m %p') %> <%= 'daily' if trip.kind.eql?('daily_work')%></div>
+        <div class="d-inline p-2 text-center" style="margin-top:10px;">Departs at <%= trip_time(trip.kind, trip.departure_times) %> <%= 'daily' if trip.kind.eql?('daily_work')%></div>
         <div class="d-inline p-2 bg-secondary text-white text-center">
             <div class="action-icons icon-color--yellow"><span><i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i>
           </div>
