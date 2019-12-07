@@ -16,7 +16,7 @@
   </div>
 </div>
 
-<div class="col-md-4 col-sm-12 daily-trip record" style="margin-bottom: 20px">
+<div class="col-md-4 col-sm-12 daily-trip record" style="margin-bottom: 20px" data-id="<%= trip.id %>">
   <div class="card card__dark card__dark--magenta custom">
     <div class="media media--16-9"> <img src="<%= url_for(trip.vehicle.thumbnail) %>"> </div>
         <div class="primary-title">
@@ -31,7 +31,7 @@
             <p class="text-center"><%= trip.short_end_location %></p> 
           </div>
         </div>
-        <div class="d-inline p-2 text-center" style="margin-top:10px;">Departs at <%= trip_time(trip.kind, trip.departure_times) %> <%= 'daily' if trip.kind.eql?('daily_work')%></div>
+        <div class="d-inline p-2 text-center" style="margin-top:10px;">Departs on <%= trip_time(trip.kind, trip.departure_times) %> <%= 'daily' if trip.kind.eql?('daily_work')%></div>
         <div class="d-inline p-2 bg-secondary text-white text-center">
             <div class="action-icons icon-color--yellow"><span><i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i>
           </div>

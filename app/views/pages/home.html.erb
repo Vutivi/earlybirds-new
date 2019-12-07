@@ -5,7 +5,12 @@
 <h2 id="trips">Available long distance rides</h2>
 <div class="row top-buffer paginated-cards mt-4">
     <%= render @trips %>
-</div
+</div>
+<div class="load-more-container">
+    <!-- hide our loading gif image so that we show it when making ajax call via jquery -->
+    <%= image_tag "ajax-loader.gif", style: "display:none;", class: "loading-gif" %>
+    <%= link_to "Load More", trips_path, class: "load-more" %>
+</div>
 <section class="better-space"></section> 
 
 
