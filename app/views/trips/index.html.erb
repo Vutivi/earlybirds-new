@@ -55,9 +55,13 @@
 <h2 class="search-header"></h2>
 <%= render 'shared/daily_cards', header: 'Cross province rides', trips: @cross_province_trips %>
 <section class="better-space"></section>
-<%= render 'shared/daily_cards', header: 'Social events rides', trips: @social_trips %>
+<%
+=begin%>
+ <%= render 'shared/daily_cards', header: 'Social events rides', trips: @social_trips %>
 <section class="better-space"></section>
-<%= render 'shared/daily_cards', header: 'Daily work lift clubs', trips: @daily_work_trips %>
+<%= render 'shared/daily_cards', header: 'Daily work lift clubs', trips: @daily_work_trips %> 
+<%
+=end%>
 <%
 =begin%>
  <%= render 'shared/daily_cards' %> 
