@@ -44,6 +44,19 @@ class User < ApplicationRecord
     role.eql?('driver')
   end
 
+  def self.to_csv
+    attributes = User.column_names
+
+    CSV.generate(headers: true) do |csv|
+      csv << attributes
+
+      all.each do |user|
+        csv << attributes.map{ |attr| user.send(attr) }
+      end
+    end
+  end
+
+
   protected
   # I disable this method because I don't use the confirmable Devise module
   def confirmation_required?

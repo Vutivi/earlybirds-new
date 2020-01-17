@@ -15,7 +15,8 @@ Rails.application.routes.draw do
   get '/users/settings',          to: 'profiles#settings',        as: :settings
   get '/leads/trip/:trip_id',     to: 'leads#for_single_trip',    as: :leads_for_trip
   get '/trips/search/any-trip',   to: 'trips#search',             as: :trips_search
-  get '/home/load_more', to: 'pages#home'
+  get '/home/load_more',          to: 'pages#home'
+  get '/messages/users.csv',      to: 'messages#export_users_csv', as: :export_users_csv
 
   devise_for :users, controllers: {
     omniauth_callbacks: 'users/omniauth_callbacks'

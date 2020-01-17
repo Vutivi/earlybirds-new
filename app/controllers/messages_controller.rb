@@ -8,6 +8,14 @@ class MessagesController < ApplicationController
     @messages = policy_scope(Message)&.all
   end
 
+  def export_users_csv
+    @users = User.all
+    respond_to do |format|
+      format.csv { send_data @users.to_csv, filename: "users-#{Date.today}.csv" }
+    end
+  end
+
+
   # GET /messages/1
   # GET /messages/1.json
   def show
