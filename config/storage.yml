@@ -13,7 +13,7 @@ amazon:
   secret_access_key: <%= ENV['DIGITAL_OCEAN_SECRET'] %>
   region: sfo2
   bucket: 'earlybirds-files'
-  endpoint: 'nyc3.digitaloceanspaces.com'
+  endpoint: 'https://nyc3.digitaloceanspaces.com'
 
 # Remember not to checkin your GCS keyfile to a repository
 # google:
