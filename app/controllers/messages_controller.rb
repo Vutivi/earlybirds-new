@@ -1,7 +1,7 @@
 class MessagesController < ApplicationController
   before_action :set_message, only: [:show, :edit, :update, :destroy]
   after_action  :send_notification_mail, only: [:create]
-  skip_before_action :authenticate_user!, except: [:new, :create, :edit, :update, :destroy]
+  # skip_before_action :authenticate_user!, except: [:new, :create, :edit, :update, :destroy]
 
   # GET /messages
   # GET /messages.json
