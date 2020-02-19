@@ -7,7 +7,7 @@
     <%= render @trips %>
 </div>
 <div class="load-more-container">
-    # <!-- hide our loading gif image so that we show it when making ajax call via jquery -->
+    <!-- hide our loading gif image so that we show it when making ajax call via jquery -->
     <%= image_tag "ajax-loader.gif", style: "display:none; height: 50px; width: 50px", class: "loading-gif" %>
     <%= link_to "Load More", trips_path, class: "load-more" %>
 </div>
