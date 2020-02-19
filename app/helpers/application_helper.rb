@@ -11,7 +11,7 @@ module ApplicationHelper
         if user.profile_image.attached?
             url_for(user.profile_image)
         else
-            "#{Rails.application.secrets.earlybirds_space_cdn_link}/default_profile_image.png"
+            "default_profile_image.jpg"
         end
     end
 
