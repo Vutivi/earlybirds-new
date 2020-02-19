@@ -56,6 +56,15 @@ class User < ApplicationRecord
     end
   end
 
+  def self.import file
+    CSV.foreach(file.path, headers: true) do |row|
+      row = row.to_hash
+      row[:tokens] = {}
+      user = User.new(row)
+      user.skip_confirmation!
+      user.save(validate: false)
+    end
+  end
 
   protected
   # I disable this method because I don't use the confirmable Devise module

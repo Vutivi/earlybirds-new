@@ -1,6 +1,7 @@
 class MessagesController < ApplicationController
   before_action :set_message, only: [:show, :edit, :update, :destroy]
   after_action  :send_notification_mail, only: [:create]
+  skip_before_action :authenticate_user!, except: [:new, :create, :edit, :update, :destroy]
 
   # GET /messages
   # GET /messages.json
@@ -13,6 +14,12 @@ class MessagesController < ApplicationController
     respond_to do |format|
       format.csv { send_data @users.to_csv, filename: "users-#{Date.today}.csv" }
     end
+  end
+
+
+  def import_users
+    User.import(params['file'])
+    redirect_to root_url, notice: 'Succesfully imported users.'
   end
 
 

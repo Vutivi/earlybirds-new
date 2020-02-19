@@ -3,7 +3,10 @@ Rails.application.routes.draw do
   resources :categories
   resources :leads, only: [:create]
   resources :riders, only: [:create, :destroy]
-  resources :messages, only: [:create, :index]
+  resources :messages, only: [:create, :index] do 
+    collection { post :import_users }
+  end
+
   resources :events
   resources :reports
   resources :trips
