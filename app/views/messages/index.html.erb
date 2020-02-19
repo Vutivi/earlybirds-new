@@ -1,10 +1,14 @@
-<!-- <%= form_tag import_users_messages_path, multipart: true do %>
+<%
+=begin%> <!--<%= form_tag import_users_messages_path, multipart: true do %>
   <%= file_field_tag :file %>
   <%= submit_tag "Import CSV", class: 'btn btn-outline-primary' %>
 <% end %>
 <%= link_to "/messages/users.csv", class: 'btn btn-outline-primary' do %>
   Export users csv
-<% end %> -->
+<% end %>
+<%
+=end
+%>
 
 <section class="better-space"></section>
 <% if inbox_trips.present? %>
