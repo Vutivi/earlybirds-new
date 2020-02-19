@@ -3,13 +3,17 @@
 <%= render 'shared/rider_adverts' %>
 <section class="better-space"></section> 
 <h2 id="trips">Available long distance rides</h2>
-<div class="row top-buffer paginated-cards mt-4">
-    <%= render @trips %>
-</div>
-<div class="load-more-container">
-    <%= image_tag "ajax-loader.gif", style: "display:none; height: 50px; width: 50px", class: "loading-gif" %>
-    <%= link_to "Load More", trips_path, class: "load-more" %>
-</div>
+<% unless @trips.size == 0 %>
+    <div class="row top-buffer paginated-cards mt-4">
+        <%= render @trips %>
+    </div>
+    <div class="load-more-container">
+        <%= image_tag "ajax-loader.gif", style: "display:none; height: 50px; width: 50px", class: "loading-gif" %>
+        <%= link_to "Load More", trips_path, class: "load-more" %>
+    </div>
+<% else %>
+    <p>No rides available</p>
+<% end %>
 <section class="better-space"></section> 
 
 
