@@ -21,7 +21,7 @@
 
     <div class="col-md-4 col-sm-12 daily-trip" style="margin-bottom: 20px">
       <div class="card card__dark card__dark--magenta custom">
-        <div class="media media--16-9" style="background-image: url(https://earlybirds.co.za<%= Rails.application.routes.url_helpers.rails_representation_url(trip.vehicle.image.variant(resize: "500x500").processed, only_path: true) %>); background-repeat: no-repeat; background-size: cover;"></div>
+        <div class="media media--16-9" style="background-image: url(<%= url_for(trip.vehicle.image) %>); background-repeat: no-repeat; background-size: cover;"></div>
             <div class="primary-title">
               <div class="primary-text float-right price btn btn-info">
                   R<%= trip.price %>
