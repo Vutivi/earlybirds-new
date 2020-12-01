@@ -37,7 +37,7 @@ Rails.application.configure do
   config.assets.compile = false
 
   # `config.assets.precompile` and `config.assets.version` have moved to config/initializers/assets.rb
-  config.active_storage.service = :cloudinary
+
   # Enable serving of images, stylesheets, and JavaScripts from an asset server.
   # config.action_controller.asset_host = 'http://assets.example.com'
   # config.action_controller.asset_host = ENV.fetch('DIGITAL_OCEAN_SPACES_CDN_URL')
@@ -97,7 +97,7 @@ Rails.application.configure do
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 
-  config.active_storage.service = :amazon
+  config.active_storage.service = :cloudinary
 
   # configure sentry
   Raven.configure do |config|
