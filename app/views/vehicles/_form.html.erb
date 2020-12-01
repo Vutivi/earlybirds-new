@@ -18,7 +18,7 @@
  <%= f.input :is_verified %> 
 <%
 =end%>
-    <%= f.input :image, as: :file, :hint => 'Avoid showing the plate number.' %>
+    <%= f.file_field :image, direct_upload: true, :hint => 'Avoid showing the plate number.' %>
 
   <div class="form-actions">
     <%= f.button :submit, :class=>"btn-primary" %>

@@ -58,6 +58,9 @@ gem 'will_paginate', '~> 3.1.0'
 # error tracking
 gem 'sentry-raven'
 
+gem 'cloudinary', require: false
+gem 'activestorage-cloudinary-service'
+
 group :development do
   gem 'web-console', '>= 3.3.0'
 end

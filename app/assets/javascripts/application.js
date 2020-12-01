@@ -3,6 +3,7 @@
 //= require jquery.slick
 //= require toastr
 //= require social-share-button
+//= require activestorage
 //= require algolia/v3/algoliasearch.min
 //= require rails-ujs
 //= require turbolinks
