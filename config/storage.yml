@@ -12,9 +12,9 @@ cloudinary:
   cloud_name: <%= ENV['CLOUDINARY_CLOUD_NAME'] %>
   api_key: <%= ENV['DIGITAL_OCEAN_KEY'] %>
   api_secret: <%= ENV['DIGITAL_OCEAN_SECRET'] %>
-#   region: sfo2
-#   bucket: 'earlybirds-files'
-#   endpoint: 'https://nyc3.digitaloceanspaces.com'
+  #   region: sfo2
+  #   bucket: 'earlybirds-files'
+  #   endpoint: 'https://nyc3.digitaloceanspaces.com'
 
 # Remember not to checkin your GCS keyfile to a repository
 # google:
