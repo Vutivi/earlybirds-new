@@ -9,8 +9,9 @@ local:
 # Use rails credentials:edit to set the AWS secrets (as aws:access_key_id|secret_access_key)
 amazon:
   service: Cloudinary
-  access_key_id: <%= ENV['DIGITAL_OCEAN_KEY'] %>
-  secret_access_key: <%= ENV['DIGITAL_OCEAN_SECRET'] %>
+  cloud_name: <%= ENV['CLOUDINARY_CLOUD_NAME'] %>
+  api_key: <%= ENV['DIGITAL_OCEAN_KEY'] %>
+  api_secret: <%= ENV['DIGITAL_OCEAN_SECRET'] %>
 #   region: sfo2
 #   bucket: 'earlybirds-files'
 #   endpoint: 'https://nyc3.digitaloceanspaces.com'
